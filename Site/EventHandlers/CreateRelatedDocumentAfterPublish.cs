@@ -8,7 +8,7 @@ using umbraco.cms.businesslogic.relation;
 using umbraco.cms.businesslogic.web;
 using Umbraco.Core;
 
-namespace Site.App_Code
+namespace Site.EventHandlers
 {
     public class CreateRelatedDocumentAfterPublish : IApplicationEventHandler
     {
