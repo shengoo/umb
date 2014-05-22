@@ -219,6 +219,7 @@
   <ItemGroup>
     <Content Include="App_Code\CreateDateFolderBeforePublish.cs" />
     <Content Include="App_Code\CreateRelatedDocumentAfterPublish.cs" />
+    <Content Include="App_Code\UmbracoExtendMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
