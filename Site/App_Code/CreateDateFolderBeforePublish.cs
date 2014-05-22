@@ -80,8 +80,8 @@ namespace Site.EventHandlers
                                 if (strArray.Length == 3)
                                 {
                                     Node topBlogLevel = new Node(sender.Parent.Id);
-                                    //Traverse up the tree to Find the Newsfolder Node since we are likely in a Date Folder path
-                                    while (topBlogLevel != null && topBlogLevel.NodeTypeAlias != "Newsfolder")
+                                    //Traverse up the tree to Find the NewsFolder Node since we are likely in a Date Folder path
+                                    while (topBlogLevel != null && topBlogLevel.NodeTypeAlias != "NewsFolder")
                                     {
                                         if (topBlogLevel.Parent != null)
                                         {
