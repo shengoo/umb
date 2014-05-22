@@ -1,0 +1,11 @@
+﻿@foreach (var data in MultiLanguage.Functions.GetUrlsAndLanguages(Model.Id))
+{
+    if (string.IsNullOrEmpty(data.Url))
+    {
+    <meta http-equiv="content-language" content="@data.LanguageCode" />
+    }
+    else
+    {
+    <link rel="alternate" hreflang="@data.LanguageCode" href="@data.Url" />
+    }
+}

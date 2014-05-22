@@ -1,0 +1,6 @@
+﻿<select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
+    @foreach (var data in MultiLanguage.Functions.GetUrlsAndLanguages(Model.Id))
+    {
+        <option value="@data.Url" @(string.IsNullOrEmpty(data.Url) ? "selected=\"selected\"" : "")>@data.NativeName</option>
+    }
+</select>

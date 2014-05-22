@@ -1,0 +1,26 @@
+﻿@{
+    // this code requires you to have <head runat="server">
+    // if you don't, or don't want to, you can add the css link manually to your template
+    // or use the non-sprite version
+    var link = new System.Web.UI.HtmlControls.HtmlLink();
+    link.Href = "~/css/MultiLanguage/style.css";
+    link.Attributes.Add("rel", "stylesheet");
+    link.Attributes.Add("type", "text/css");
+    Page page = HttpContext.Current.Handler as Page;
+    page.Header.Controls.Add(link);
+}
+<ul>
+@foreach (var data in MultiLanguage.Functions.GetUrlsAndLanguages(Model.Id))
+{
+    if (string.IsNullOrEmpty(data.Url))
+    {
+    <li><strong>
+        <img src="@Href("~/css/MultiLanguage/blank.gif")" class="flag flag-@data.CountryCode" alt="@data.NativeName" title="@data.NativeName"/></strong></li>
+    }
+    else
+    {
+    <li><a href="@data.Url">
+        <img src="@Href("~/css/MultiLanguage/blank.gif")" class="flag flag-@data.CountryCode" alt="@data.NativeName" title="@data.NativeName"/></a></li>
+    }
+}
+</ul>
