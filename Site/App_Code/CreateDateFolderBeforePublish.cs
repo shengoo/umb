@@ -36,9 +36,9 @@ namespace Site.EventHandlers
             if (sender.ContentType.Alias == "NewsArticle")
             {
 
-                if (sender.getProperty("PostDate") == null)
+                if (sender.getProperty("articleDate") != null)
                 {
-                    sender.getProperty("PostDate").Value = sender.CreateDateTime.Date;
+                    sender.getProperty("articleDate").Value = sender.CreateDateTime.Date;
                 }
 
             }
@@ -54,7 +54,7 @@ namespace Site.EventHandlers
             if (sender.ContentType.Alias == "NewsArticle") //As this runs for every publish event, only proceed if this is NewsArticle
             {
                 Log.Add(LogTypes.Debug, sender.User, sender.Id, string.Format("Start Before Publish Event for Blog Post {0}", sender.Id));
-                if (sender.getProperty("PostDate") != null) //If no post date, skip 
+                if (sender.getProperty("articleDate") != null) //If no post date, skip 
                 {
                     if (sender.Parent != null)  //If top of tree, something is wrong.  Skip.
                     {
@@ -63,15 +63,15 @@ namespace Site.EventHandlers
                             DocumentVersionList[] postVersions = sender.GetVersions();
                             bool _versionCheck = true;
                             DateTime postDate;
-                            postDate = System.Convert.ToDateTime(sender.getProperty("PostDate").Value);
+                            postDate = System.Convert.ToDateTime(sender.getProperty("articleDate").Value);
                             if (postVersions.Length > 1)  //If it has been published, check post date info
                             {
                                 //Length -1 is current version Length -2 is past version (if it exists)
                                 Guid previousVersion = postVersions[postVersions.Length - 2].Version;
                                 Document doc = new Document(sender.Id, previousVersion);
-                                DateTime previousPostDate = System.Convert.ToDateTime(doc.getProperty("PostDate").Value);
-
-                                _versionCheck = (postDate != previousPostDate);
+                                DateTime previousPostDate = System.Convert.ToDateTime(doc.getProperty("articleDate").Value);
+                                
+                                //_versionCheck = (postDate != previousPostDate);
                             }
 
                             if (_versionCheck)  //Only do the date folder movement if the PostDate is changed or is new Post.
