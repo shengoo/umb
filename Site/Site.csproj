@@ -220,6 +220,7 @@
     <Content Include="App_Code\CreateDateFolderBeforePublish.cs" />
     <Content Include="App_Code\CreateRelatedDocumentAfterPublish.cs" />
     <Content Include="App_Code\UmbracoExtendMethods.cs" />
+    <Content Include="App_Code\ContactController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +262,9 @@
     <Content Include="Views\Search.cshtml" />
     <Content Include="Views\Sitemap.cshtml" />
     <Content Include="Views\StandardPage.cshtml" />
+    <Content Include="macroScripts\MultiLanguage\LanguageSwitcher\Flags.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

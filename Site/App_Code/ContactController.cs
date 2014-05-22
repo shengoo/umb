@@ -89,6 +89,8 @@ namespace Koiak.StandardWebsite
             mailMessage.Subject = subject;
             mailMessage.IsBodyHtml = false;
 
+            mailMessage.From = new MailAddress(model.Email);
+
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.Send(mailMessage);
         }

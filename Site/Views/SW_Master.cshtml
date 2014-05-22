@@ -1,4 +1,4 @@
-@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @using Site.App_Code
 @{
     Layout = null;
@@ -32,7 +32,7 @@
                 
                 <a href="/" id="logo"><img src="/images/logo.png" alt="Koiak Basic Site" /></a>
 				
-                @if (homepage.HasProperty("headerNavigation"))
+                @*@if (homepage.HasProperty("headerNavigation"))
                 {
                     <ul  class="navigation fc">
                     @foreach (var item in Umbraco.TypedContent(homepage.GetPropertyValue("headerNavigation").ToString().Split(',')))
@@ -43,7 +43,8 @@
                         }
                     }
                     </ul>
-                }
+                }*@
+                @Umbraco.RenderMacro("MLLanguageSwitcher", new {RenderType="Flags" })
                 
                 
                 @if(Umbraco.MemberIsLoggedOn())

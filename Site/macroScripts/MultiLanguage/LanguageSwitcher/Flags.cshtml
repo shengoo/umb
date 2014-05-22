@@ -1,0 +1,18 @@
+﻿<ul  class="navigation fc">
+    @foreach (var data in MultiLanguage.Functions.GetUrlsAndLanguages(Model.Id))
+    {
+        if (string.IsNullOrEmpty(data.Url))
+        {
+            <li>
+                <img style="padding: 0;" src="@Href("~/css/MultiLanguage/flags/" + data.CountryCode + ".png")" alt="@data.NativeName" title="@data.NativeName"/>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="@data.Url">
+                    <img style="padding: 0;" src="@Href("~/css/MultiLanguage/flags/" + data.CountryCode + ".png")" alt="@data.NativeName" title="@data.NativeName"/></a>
+            </li>
+        }
+    }
+</ul>
