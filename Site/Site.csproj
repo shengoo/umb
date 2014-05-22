@@ -242,6 +242,22 @@
     <Content Include="config\BaseRestExtensions.config" />
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
+    <Content Include="Views\SW_Master.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Partials\Affiliations.cshtml" />
+    <Content Include="Views\Partials\ContactForm.cshtml" />
+    <Content Include="Views\Partials\ContentPanels.cshtml" />
+    <Content Include="Views\Partials\LeftNavigation.cshtml" />
+    <Content Include="Views\Partials\LoginForm.cshtml" />
+    <Content Include="Views\Articles.cshtml" />
+    <Content Include="Views\ClientAreas.cshtml" />
+    <Content Include="Views\Contact.cshtml" />
+    <Content Include="Views\Home.cshtml" />
+    <Content Include="Views\Login.cshtml" />
+    <Content Include="Views\Search.cshtml" />
+    <Content Include="Views\Sitemap.cshtml" />
+    <Content Include="Views\StandardPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
