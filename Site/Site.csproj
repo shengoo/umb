@@ -217,6 +217,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\CopyDocumentToRelatedOnPublish.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
