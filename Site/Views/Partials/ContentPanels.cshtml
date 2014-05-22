@@ -1,5 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
-@{
+@if (!string.IsNullOrWhiteSpace(Model.GetPropertyValue<string>("contentPanels")))
+{
     Layout = null;
     var nodeIds = Model.GetPropertyValue<string>("contentPanels").Split(',');
     List<IPublishedContent> panels = new List<IPublishedContent>();
@@ -16,8 +17,7 @@
         }
     }
     
-}
-@if(panels.Count() > 0)
+if(panels.Count() > 0)
 {
 <ul id="rightPanel">
         @foreach (var panel in panels)
@@ -28,4 +28,6 @@
             }
         }
     </ul>
+}
+    
 }
