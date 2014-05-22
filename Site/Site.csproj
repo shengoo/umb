@@ -217,7 +217,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\CopyDocumentToRelatedOnPublish.cs" />
+    <Content Include="EventHandlers\CreateDateFolderBeforePublish.cs" />
+    <Content Include="EventHandlers\CreateRelatedDocumentAfterPublish.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -267,6 +268,9 @@
     </None>
     <Content Include="xslt\dummy.txt" />
     <Content Include="xslt\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
