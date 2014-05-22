@@ -10,9 +10,9 @@ using umbraco.BusinessLogic;
 using umbraco.BusinessLogic.console;
 using umbraco.presentation.nodeFactory;
 
-namespace Site
+namespace Site.EventHandlers
 {
-    public class CreateDateFolderBeforePublish : ApplicationStartupHandler 
+    public class CreateDateFolderBeforePublish : ApplicationBase 
     {
 
 
@@ -22,8 +22,8 @@ namespace Site
         /// </summary>
         public CreateDateFolderBeforePublish()
         {
-            //Document.New += new Document.NewEventHandler(Document_New);
-            //Document.BeforePublish += new Document.PublishEventHandler(Document_BeforePublish);
+            Document.New += new Document.NewEventHandler(Document_New);
+            Document.BeforePublish += new Document.PublishEventHandler(Document_BeforePublish);
         }
 
         /// <summary>
@@ -33,10 +33,10 @@ namespace Site
         /// <param name="e">The <see cref="umbraco.cms.businesslogic.NewEventArgs"/> instance containing the event data.</param>
         void Document_New(Document sender, umbraco.cms.businesslogic.NewEventArgs e)
         {
-            if (sender.ContentType.Alias == "BlogPost")
+            if (sender.ContentType.Alias == "NewsArticle")
             {
 
-                if (sender.getProperty("PostDate") != null)
+                if (sender.getProperty("PostDate") == null)
                 {
                     sender.getProperty("PostDate").Value = sender.CreateDateTime.Date;
                 }
@@ -51,7 +51,7 @@ namespace Site
         /// <param name="e">Publish Event Args</param>
         void Document_BeforePublish(Document sender, umbraco.cms.businesslogic.PublishEventArgs e)
         {
-            if (sender.ContentType.Alias == "BlogPost") //As this runs for every publish event, only proceed if this is BlogPost
+            if (sender.ContentType.Alias == "NewsArticle") //As this runs for every publish event, only proceed if this is NewsArticle
             {
                 Log.Add(LogTypes.Debug, sender.User, sender.Id, string.Format("Start Before Publish Event for Blog Post {0}", sender.Id));
                 if (sender.getProperty("PostDate") != null) //If no post date, skip 
@@ -80,8 +80,8 @@ namespace Site
                                 if (strArray.Length == 3)
                                 {
                                     Node topBlogLevel = new Node(sender.Parent.Id);
-                                    //Traverse up the tree to Find the Blog Node since we are likely in a Date Folder path
-                                    while (topBlogLevel != null && topBlogLevel.NodeTypeAlias != "Blog")
+                                    //Traverse up the tree to Find the Newsfolder Node since we are likely in a Date Folder path
+                                    while (topBlogLevel != null && topBlogLevel.NodeTypeAlias != "Newsfolder")
                                     {
                                         if (topBlogLevel.Parent != null)
                                         {
@@ -100,7 +100,7 @@ namespace Site
                                         {
                                             if (ni.Name == strArray[0])
                                             {
-                                                folderNode = new Node(ni.Id);
+                                                folderNode = new Node(ni.Id);//year node
                                                 document = new Document(ni.Id);
                                                 break;
                                             }

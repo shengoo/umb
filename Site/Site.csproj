@@ -217,8 +217,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EventHandlers\CreateDateFolderBeforePublish.cs" />
-    <Content Include="EventHandlers\CreateRelatedDocumentAfterPublish.cs" />
+    <Content Include="App_Code\CreateDateFolderBeforePublish.cs" />
+    <Content Include="App_Code\CreateRelatedDocumentAfterPublish.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -270,7 +270,7 @@
     <Content Include="xslt\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Code\" />
+    <Folder Include="EventHandlers\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
