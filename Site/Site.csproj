@@ -271,6 +271,11 @@
     </Content>
     <Content Include="Views\Partials\NewsLeftNav.cshtml" />
     <Content Include="Views\NewsArticle.cshtml" />
+    <Content Include="Views\ProductFolder.cshtml" />
+    <Content Include="Views\ProductItem.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Partials\ProductLeftNav.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,21 +1,20 @@
 @using Site.App_Code
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
-@*inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>*@
-
 @{
     Layout = null;
-    var parent = Model.Content.AncestorsOrSelf("NewsFolder").FirstOrDefault();
+    var parent = Model.Content.AncestorsOrSelf("ProductFolder").FirstOrDefault();
     if(parent != null)
     {
         @traverse(parent, 6)
     }
 }
 
+@*traverse(parent, 6)*@
 
 @helper traverse(IPublishedContent parent, int finishLevel)
 {
  <ul>
-    @foreach (var node in parent.Children.Where(x => x.IsVisible() && !x.IsDocumentType("NewsArticle")))
+    @foreach (var node in parent.Children.Where(x => x.IsVisible() && !x.IsDocumentType("ProductItem")))
     {
         if(node != null)
         {
