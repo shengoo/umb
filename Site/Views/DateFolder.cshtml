@@ -1,4 +1,8 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = null;
+    var currentNewsFolder = Model.Content.AncestorsOrSelf("NewsFolder").LastOrDefault();
 }
+<script>
+    window.location.href = "@currentNewsFolder.Url";
+</script>

@@ -15,7 +15,7 @@ namespace Site.App_Code
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>
-        public static string GetTitleOrString(this IPublishedContent content)
+        public static string GetTitleOrName(this IPublishedContent content)
         {
             return content.GetPropertyValue<string>("title") == "" ? content.Name : content.GetPropertyValue<string>("title");
         }

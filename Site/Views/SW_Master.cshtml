@@ -73,7 +73,7 @@
                         if (item != null)
                         {
                             var selected = Array.IndexOf(Model.Content.Path.Split(','), item.Id.ToString()) >= 0 && item.Level > 1 ? " class=\"selected\"" : "";
-                        <li @Html.Raw(selected)><a href="@item.GetAliasOrUrl()">@item.GetTitleOrString()</a></li>
+                        <li @Html.Raw(selected)><a href="@item.GetAliasOrUrl()">@item.GetTitleOrName()</a></li>
                         }
                     }
                     </ul>

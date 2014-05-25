@@ -265,6 +265,10 @@
     <Content Include="macroScripts\MultiLanguage\LanguageSwitcher\Flags.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\NewsFolder.cshtml" />
+    <Content Include="Views\DateFolder.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
