@@ -269,6 +269,8 @@
     <Content Include="Views\DateFolder.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Partials\NewsLeftNav.cshtml" />
+    <Content Include="Views\NewsArticle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

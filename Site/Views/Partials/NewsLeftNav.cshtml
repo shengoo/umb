@@ -1,0 +1,27 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@*inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>*@
+
+@{
+    Layout = null;
+    var parent = Model.Content.AncestorsOrSelf("NewsFolder").FirstOrDefault();
+}
+
+@traverse(parent, 6)
+
+@helper traverse(IPublishedContent parent, int finishLevel)
+{
+ <ul>
+    @foreach (var node in parent.Children.Where(x => x.IsVisible() && !x.IsDocumentType("NewsArticle")))
+    {
+        if(node != null)
+        {
+      var selected = Array.IndexOf(Model.Content.Path.Split(','), node.Id.ToString()) >= 0 ? " class=\"selected\"" : "";
+      <li @Html.Raw(selected)>
+        <a href="@node.NiceUrl()">@node.Name</a>                                       
+        @*if (selected!=""&&@node.Level<=finishLevel) { @traverse(node,finishLevel); }  *@
+      </li>
+      }
+      }
+    </ul>                                                            
+        
+}
