@@ -91,3 +91,7 @@ footer a{
     display: inline-block;
     white-space: nowrap;
 }
+
+.copyright{
+    text-align: center;
+}
