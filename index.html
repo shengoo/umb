@@ -13,225 +13,204 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
+
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png" />
 
+        <script src="scripts/vendor/jquery-1.11.1.min.js"></script>
+
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <div id="page" class="shell">
-            <!-- Logo + Search + Navigation -->
-            <div id="top">
-                <div class="cl">&nbsp;</div>
-                <h1 id="logo"><a href="#">MONDAYS</a></h1>
-                <form action="" method="post" id="search">
-                    <div class="field-holder">
-                        <input type="text" class="field" value="Search" title="Search" />
-                    </div>
-                    <input type="submit" class="button" value="Search" />
-                    <div class="cl">&nbsp;</div>
-                </form>
-                <div class="cl">&nbsp;</div>
-                <div id="navigation">
+        <div class="outer">
+            <!-- header -->
+            <header class="header">
+                <div class="logo"><a href="#"><img src="images/logo.jpg"></a></div>
+                <div class="lang_s">
+                    <p>
+                        <a data-language="zh-Hans" href="javascript:;">中文简体</a> |
+                        <a data-language="zh-Hant" href="javascript:;">中文繁体</a> |
+                        <a data-language="en-US" href="javascript:;">English</a> |
+                        <a data-language="fr-FR" href="javascript:;">Français</a>
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+                <nav>
                     <ul>
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
                         <li>
-                            <a href="#" class="active"><span>home</span></a>
-                            <ul>
-                                <li><a href="#">about us</a></li>
-                                <li><a href="#">services</a></li>
-                                <li><a href="#">solutions</a></li>
-                                <li><a href="#">support</a></li>
-                                <li><a href="#">partners</a></li>
-                                <li><a href="#">contact</a></li>
-                            </ul>
+                            <a href="#">Services<span></span></a>
                         </li>
                         <li>
-                            <a href="#"><span>about us</span></a>
-                            <ul>
-                                <li><a href="#">about us</a></li>
-                                <li><a href="#">services</a></li>
-                                <li><a href="#">solutions</a></li>
-                                <li><a href="#">support</a></li>
-                                <li><a href="#">partners</a></li>
-                                <li><a href="#">contact</a></li>
-                            </ul>
+                            <a href="#">Projects<span></span></a>
                         </li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
                         <li>
-                            <a href="#"><span>services</span></a>
-                            <ul>
-                                <li><a href="#">about us</a></li>
-                                <li><a href="#">services</a></li>
-                                <li><a href="#">solutions</a></li>
-                                <li><a href="#">support</a></li>
-                                <li><a href="#">partners</a></li>
-                                <li><a href="#">contact</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span>solutions</span></a>
-                            <ul>
-                                <li><a href="#">about us</a></li>
-                                <li><a href="#">services</a></li>
-                                <li><a href="#">solutions</a></li>
-                                <li><a href="#">support</a></li>
-                                <li><a href="#">partners</a></li>
-                                <li><a href="#">contact</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span>support</span></a>
-                            <ul>
-                                <li><a href="#">about us</a></li>
-                                <li><a href="#">services</a></li>
-                                <li><a href="#">solutions</a></li>
-                                <li><a href="#">support</a></li>
-                                <li><a href="#">partners</a></li>
-                                <li><a href="#">contact</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span>partners</span></a>
-                            <ul>
-                                <li><a href="#">about us</a></li>
-                                <li><a href="#">services</a></li>
-                                <li><a href="#">solutions</a></li>
-                                <li><a href="#">support</a></li>
-                                <li><a href="#">partners</a></li>
-                                <li><a href="#">contact</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span>contact</span></a>
-                            <ul>
-                                <li><a href="#">about us</a></li>
-                                <li><a href="#">services</a></li>
-                                <li><a href="#">solutions</a></li>
-                                <li><a href="#">support</a></li>
-                                <li><a href="#">partners</a></li>
-                                <li><a href="#">contact</a></li>
-                            </ul>
+                            <a href="#">Bonus Pages<span></span></a>
                         </li>
                     </ul>
+                </nav>
+
+            </header>
+            <!-- end of header -->
+
+            <!-- carousel -->
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <a href="#">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzc3NyIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNTU1O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+Rmlyc3Qgc2xpZGU8L3RleHQ+PC9zdmc+"
+                                 alt="...">
+                            <div class="carousel-caption">
+                                <h3>title</h3>
+                                <p>caption1</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzc3NyIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNTU1O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+Rmlyc3Qgc2xpZGU8L3RleHQ+PC9zdmc+"
+                                 alt="...">
+                            <div class="carousel-caption">
+                                <h3>title</h3>
+                                <p>caption2</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzc3NyIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNTU1O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+Rmlyc3Qgc2xpZGU8L3RleHQ+PC9zdmc+"
+                                 alt="...">
+                            <div class="carousel-caption">
+                                <h3>title</h3>
+                                <p>caption3</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
             </div>
-            <!-- END Logo + Search + Navigation -->
-            <!-- Header -->
-            <div id="header">
-                <!-- Slider -->
-                <div id="slider">
-                    <div id="slider-holder">
-                        <ul>
-                            <li>
-                                <div class="slide-info">
-                                    <h2 class="notext txt-we-love-mondays">WE LOVE MONDAYS</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare consequat tortor quis porttitor. Aliquam sed fringilla arcu. Maecenas sit amet cursus augue. Donec felis eros, luctus at blandit.</p>
-                                    <a href="#" class="button-more">More</a>
-                                </div>
-                                <div class="slide-image">
-                                    <img src="css/images/img1.gif" alt="" />
-                                </div>
-                            </li>
-                            <li>
-                                <div class="slide-info">
-                                    <h2 class="notext txt-we-love-mondays">WE LOVE MONDAYS</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare consequat tortor quis porttitor. Aliquam sed fringilla arcu. Maecenas sit amet cursus augue. Donec felis eros, luctus at blandit.</p>
-                                    <a href="#" class="button-more">More</a>
-                                </div>
-                                <div class="slide-image">
-                                    <img src="css/images/img1.gif" alt="" />
-                                </div>
-                            </li>
-                            <li>
-                                <div class="slide-info">
-                                    <h2 class="notext txt-we-love-mondays">WE LOVE MONDAYS</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare consequat tortor quis porttitor. Aliquam sed fringilla arcu. Maecenas sit amet cursus augue. Donec felis eros, luctus at blandit.</p>
-                                    <a href="#" class="button-more">More</a>
-                                </div>
-                                <div class="slide-image">
-                                    <img src="css/images/img1.gif" alt="" />
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="slider-nav">
-                        <a href="#" class="prev">Previous</a>
-                        <a href="#" class="next">Next</a>
-                    </div>
-                </div>
-                <!-- END Slider -->
-            </div>
-            <!-- END Header -->
-            <!-- Main -->
-            <div id="main">
-                <!-- Three Column Content -->
-                <div class="cols three-cols">
-                    <div class="cl">&nbsp;</div>
-                    <div class="col">
-                        <h2>What is Mondays?</h2>
-                        <h3 class="notext txt-monday-again">MONDAY AGAIN</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare consequat tortor quis porttitor. Aliquam sed fringilla arcu. Maecenas sit amet cursus augue. Donec felis eros, luctus at blandit ac.</p>
-                        <p><a href="#" class="more">Learn more</a></p>
-                    </div>
-                    <div class="col">
-                        <h2>Monday Services</h2>
-                        <h3 class="notext txt-wedothis">WE DO THIS AND THAT....</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare consequat tortor quis porttitor. </p>
-                        <p><a href="#" class="more">Learn more</a></p>
-                    </div>
-                    <div class="col col-last">
-                        <h2>Monday Support</h2>
-                        <h3 class="notext txt-247">24/7 YES REALLY...</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare consequat tortor quis porttitor. Aliquam sed fringilla arcu. Maecenas sit amet cursus augue.</p>
-                        <p><a href="#" class="more">Learn more</a></p>
-                    </div>
-                    <div class="cl">&nbsp;</div>
-                </div>
-                <!-- END Three Column Content -->
-                <!-- Two Column Content -->
-                <div class="cols two-cols">
-                    <div class="cl">&nbsp;</div>
-                    <div class="col">
-                        <h2>Why Mondays?</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare consequat tortor quis porttitor. Aliquam sed fringilla arcu. Maecenas sit amet cursus augue. Donec felis eros, luctus at blandit ac.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare consequat tortor quis porttitor. Aliquam sed fringilla arcu. Maecenas sit amet cursus augue. Donec felis eros, luctus at blandit ac.</p>
-                        <p><a href="#" class="more">Learn more</a></p>
-                    </div>
-                    <div class="col col-last">
-                        <h2>This Solution and That Solution...</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare consequat tortor quis porttitor. Aliquam sed fringilla arcu. Maecenas sit amet cursus augue. Donec felis eros, luctus at blandit ac.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare consequat tortor quis porttitor. Aliquam sed fringilla arcu. Maecenas sit amet cursus augue. Donec felis eros, luctus at blandit ac.</p>
-                        <p><a href="#" class="more">Learn more</a></p>
-                    </div>
-                    <div class="cl">&nbsp;</div>
-                </div>
-                <!-- END Two Column Content -->
-            </div>
-            <!-- END Main -->
-            <!-- Footer -->
-            <div id="footer">
-                <p class="right">&copy; 2010 - CompanyName &nbsp; Design by <a href="http://chocotemplates.com" target="_blank" title="The Sweetest CSS Templates WorldWide">Chocotemplates.com</a></p>
-                <p><a href="#">Home</a><span>&nbsp;</span><a href="#">About Us</a><span>&nbsp;</span><a href="#">Services</a><span>&nbsp;</span><a href="#">Solutions</a><span>&nbsp;</span><a href="#">Support</a><span>&nbsp;</span><a href="#">Partners</a><span>&nbsp;</span><a href="#">Contact</a></p>
-                <div class="cl">&nbsp;</div>
-            </div>
-            <!-- END Footer -->
-            <br />
+
+            <script type="text/javascript">
+                $(function(){
+                    $('.carousel').carousel({
+                        interval: 3000
+                    });
+                });
+            </script>
+            <!-- end of carousel -->
+
+
+            <!-- breadcrumb -->
+
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Library</a></li>
+                <li class="active">Data</li>
+            </ol>
+
+            <!-- end of breadcrumb -->
+
+
+            <!-- main -->
+
+            <main>
+                hello
+            </main>
+
+            <!-- end of main-->
+
+            <!-- footer -->
+            <footer>
+                <ul>
+                    <li><a href="#"><strong>了解中成国际</strong></a></li>
+                    <li><a href="#">企业概况</a></li>
+                    <li><a href="#">董事长致辞</a></li>
+                    <li><a href="#">管理团队</a></li>
+                    <!--<li><a href="about_4.html">公司理念及文化</a></li>-->
+                    <li><a href="#">分支机构与下属企业分支机构与下属企业分支机构与下属企业分支机构与下属企业</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><strong>了解中成国际</strong></a></li>
+                    <li><a href="#">企业概况</a></li>
+                    <li><a href="#">董事长致辞</a></li>
+                    <li><a href="#">管理团队</a></li>
+                    <!--<li><a href="about_4.html">公司理念及文化</a></li>-->
+                    <li><a href="#">分支机构与下属企业分支机构与下属企业分支机构与下属企业分支机构与下属企业</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><strong>了解中成国际</strong></a></li>
+                    <li><a href="#">企业概况</a></li>
+                    <li><a href="#">董事长致辞</a></li>
+                    <li><a href="#">管理团队</a></li>
+                    <!--<li><a href="about_4.html">公司理念及文化</a></li>-->
+                    <li><a href="#">分支机构与下属企业分支机构与下属企业分支机构与下属企业分支机构与下属企业</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><strong>了解中成国际</strong></a></li>
+                    <li><a href="#">企业概况</a></li>
+                    <li><a href="#">董事长致辞</a></li>
+                    <li><a href="#">管理团队</a></li>
+                    <!--<li><a href="about_4.html">公司理念及文化</a></li>-->
+                    <li><a href="#">分支机构与下属企业分支机构与下属企业分支机构与下属企业分支机构与下属企业</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><strong>了解中成国际</strong></a></li>
+                    <li><a href="#">企业概况</a></li>
+                    <li><a href="#">董事长致辞</a></li>
+                    <li><a href="#">管理团队</a></li>
+                    <!--<li><a href="about_4.html">公司理念及文化</a></li>-->
+                    <li><a href="#">分支机构与下属企业分支机构与下属企业分支机构与下属企业分支机构与下属企业</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><strong>了解中成国际</strong></a></li>
+                    <li><a href="#">企业概况</a></li>
+                    <li><a href="#">董事长致辞</a></li>
+                    <li><a href="#">管理团队</a></li>
+                    <!--<li><a href="about_4.html">公司理念及文化</a></li>-->
+                    <li><a href="#">分支机构与下属企业分支机构与下属企业分支机构与下属企业分支机构与下属企业</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><strong>了解中成国际</strong></a></li>
+                    <li><a href="#">企业概况</a></li>
+                    <li><a href="#">董事长致辞</a></li>
+                    <li><a href="#">管理团队</a></li>
+                    <!--<li><a href="about_4.html">公司理念及文化</a></li>-->
+                    <li><a href="#">分支机构与下属企业分支机构与下属企业分支机构与下属企业分支机构与下属企业</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- end of footer -->
         </div>
 
-        
 
-        <script src="js/vendor/jquery-1.10.2.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+
+        <script src="scripts/vendor/bootstrap.min.js"></script>
 
 
     </body>
