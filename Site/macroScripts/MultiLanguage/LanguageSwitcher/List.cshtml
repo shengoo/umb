@@ -1,13 +1,24 @@
-﻿<ul style="text-transform: capitalize; list-style-type: none;">
+﻿@{
+    var first = true;
+}
+<p>
     @foreach (var data in MultiLanguage.Functions.GetUrlsAndLanguages(Model.Id))
     {
+        if (first)
+        {
+            first = false;
+        }
+        else
+        {
+            <span>|</span>
+        }
         if (string.IsNullOrEmpty(data.Url))
         {
-        <li style="display: inline"><strong>@data.NativeName</strong></li>
+        <strong>@data.NativeName</strong>
         }
         else
         {        
-        <li style="display: inline"><a href="@data.Url">@data.NativeName</a></li>
+        <a href="@data.Url">@data.NativeName</a>
         }
     }
-</ul>
+</p>

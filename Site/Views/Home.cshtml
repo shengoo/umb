@@ -1,65 +1,94 @@
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "SW_Master.cshtml";
+    var nodeIds = Model.Content.GetPropertyValue("slideshow").ToString().Split(',');
+    List<IPublishedContent> slides = new List<IPublishedContent>();
+    foreach (var nodeId in nodeIds)
+    {
+        if (!String.IsNullOrEmpty(nodeId))
+        {
+            var publishedContent = Umbraco.NiceUrl(Convert.ToInt32(nodeId));
+            if (!String.IsNullOrEmpty(publishedContent) && publishedContent != "#")
+            {
+                slides.Add(Umbraco.TypedContent(nodeId));
+            }
+        }
+    }
 }
- 
-    <div id="slideshow">
-    <ul> 
-            @{
-        var nodeIds = Model.Content.GetPropertyValue("slideshow").ToString().Split(',');
-        List<IPublishedContent> slides = new List<IPublishedContent>();
-
-        foreach (var nodeId in nodeIds)
+ <!-- carousel -->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        @for (var i=0;i<slides.Count;i++)
         {
-            if (!String.IsNullOrEmpty(nodeId))
-            {
-                var publishedContent = Umbraco.NiceUrl(Convert.ToInt32(nodeId));
-                if (!String.IsNullOrEmpty(publishedContent) && publishedContent != "#")
-                {
-                    slides.Add(Umbraco.TypedContent(nodeId));
-                }
-            }
+            var active = i == 0 ? " class=\"active\"" : "";
+            <li data-target="#carousel-example-generic" data-slide-to="@i" @Html.Raw(active)></li>
         }
-        }
-
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
         @foreach (var slide in slides)
         {
-            if(slide != null)
+            if (slide != null)
             {
-                string styleString = !slide.IsFirst() ? "display:none;" : "";
-                <li class="rotating-panel fc" style="@styleString">
-                    <img class="fl" alt="@slide.Name" src="@slide.GetPropertyValue("mainImage")"/>
-                    <div class="">
-                    @Html.Raw(slide.GetPropertyValue("bodyText"))
-                    </div>
-                </li>
+                string styleString = slide.IsFirst() ? "active" : "";
+                <div class="item @Html.Raw(styleString)">
+                    <a href="#">
+                        <img src="@slide.GetPropertyValue("mainImage")"
+                             alt="@slide.Name">
+                        <div class="carousel-caption">
+                            <h3>@slide.Name</h3>
+                            <p>@Html.Raw(slide.GetPropertyValue("bodyText"))</p>
+                        </div>
+                    </a>
+                </div>
             }
         }
-    </ul>
-      <ul id="slidePager">
-        @foreach (var slide in slides)
-        {
-            string classString = slide.IsFirst() ? "selected" : "";
-          <li>
-            <a href="?position={position()}" class="@classString">
-              @slide.Position()
-            </a>
-          </li>
-        }
-      </ul>
-
+        
     </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+</div>
+<!-- end of carousel -->
+
  
-    <div class="fc">
-        <div class="feature fl">
-                    @Html.Raw(Model.Content.GetPropertyValue("panelContent1").ToString())
-             </div>
-
-        <div class="feature fl">
-                    @Html.Raw(Model.Content.GetPropertyValue("panelContent2").ToString())
-             </div>
-
-        <div class="feature fr">
-                    @Html.Raw(Model.Content.GetPropertyValue("panelContent3").ToString())
-             </div>
+<div class="fc">
+    <div class="feature fl">
+        @Html.Raw(Model.Content.GetPropertyValue("panelContent1").ToString())
     </div>
+
+    <div class="feature fl">
+        @Html.Raw(Model.Content.GetPropertyValue("panelContent2").ToString())
+    </div>
+
+    <div class="feature fr">
+        @Html.Raw(Model.Content.GetPropertyValue("panelContent3").ToString())
+    </div>
+</div>
+
+@section styles
+{
+    <style>
+        .carousel-inner>.item>img, .carousel-inner>.item>a>img  {
+            height: 300px;
+        }
+    </style>
+}
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function() {
+            $('.carousel').carousel({
+                interval: 3000
+            });
+        });
+    </script>
+}

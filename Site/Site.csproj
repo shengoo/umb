@@ -206,13 +206,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\dummy.txt" />
+    <Content Include="css\style.css" />
     <Content Include="default.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="macroScripts\dummy.txt" />
     <Content Include="masterpages\dummy.txt" />
     <Content Include="media\dummy.txt" />
     <Content Include="scripts\dummy.txt" />
+    <Content Include="scripts\vendor\bootstrap.js" />
+    <Content Include="scripts\vendor\bootstrap.min.js" />
+    <Content Include="scripts\vendor\jquery-1.11.1.js" />
+    <Content Include="scripts\vendor\jquery-1.11.1.min.js" />
+    <Content Include="scripts\vendor\modernizr-2.6.2.min.js" />
     <Content Include="usercontrols\dummy.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -276,6 +287,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Partials\ProductLeftNav.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

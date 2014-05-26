@@ -1,0 +1,25 @@
+@using Site.App_Code
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var homepage = Model.Content.AncestorOrSelf(1);
+}
+<footer>
+                    
+    @if (homepage.HasProperty("primaryNavigation"))
+    {
+        foreach (var node in Umbraco.TypedContent(homepage.GetPropertyValue<string>("primaryNavigation").Split(',')))
+        {
+            if(node != null && node.Level != 1)
+            {
+                <ul>
+                    <li><a href="@node.GetAliasOrUrl()"><strong>@node.GetTitleOrName()</strong></a></li>
+                    @foreach (var item in node.Children)
+                    {
+                        <li><a href="@item.GetAliasOrUrl()">@item.GetTitleOrName()</a></li>
+                    }
+                </ul>
+            }
+        }
+    }
+    <div class="clearfix"></div>
+</footer>
