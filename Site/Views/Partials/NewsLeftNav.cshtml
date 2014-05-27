@@ -14,18 +14,23 @@
 
 @helper traverse(IPublishedContent parent, int finishLevel)
 {
+<aside class=" sidebar" style="float: left;width: 25%;">
+<h2 class="sidebar-widget-title">@parent.GetTitleOrName()</h2>
+<nav>
  <ul>
     @foreach (var node in parent.Children.Where(x => x.IsVisible() && !x.IsDocumentType("NewsArticle")))
     {
         if(node != null)
         {
-      var selected = Array.IndexOf(Model.Content.Path.Split(','), node.Id.ToString()) >= 0 ? " class=\"selected\"" : "";
-      <li @Html.Raw(selected)>
-        <a href="@node.GetAliasOrUrl()">@node.GetTitleOrName()</a>                                       
+      var selected = Array.IndexOf(Model.Content.Path.Split(','), node.Id.ToString()) >= 0 ? " class=\"active\"" : "";
+      <li>
+        <a @Html.Raw(selected) href="@node.GetAliasOrUrl()">@node.GetTitleOrName()</a>                                       
         @*if (selected!=""&&@node.Level<=finishLevel) { @traverse(node,finishLevel); }  *@
       </li>
       }
       }
-    </ul>                                                            
-        
+    </ul>   
+</nav>                                                         
+       
+      </aside> 
 }

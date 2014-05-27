@@ -1,25 +1,35 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
+﻿@using Site.App_Code
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
 @{
     Layout = null;
     var parent = Model.AncestorOrSelf(2);
+    if(parent != null)
+    {
+        @traverse(parent, 6)
+    }
 }
 
-@traverse(parent, 6)
 
 @helper traverse(IPublishedContent parent, int finishLevel)
 {
- <ul>
-    @foreach (var node in parent.Children.Where(x => x.IsVisible() && !x.IsDocumentType("NewsArticle")))
-    {
-        if(node != null)
-        {
-      var selected = Array.IndexOf(Model.Path.Split(','), node.Id.ToString()) >= 0 ? " class=\"selected\"" : "";
-      <li @Html.Raw(selected)>
-        <a href="@node.NiceUrl()">@node.Name</a>                                       
-        @if (selected!=""&&@node.Level<=finishLevel) { @traverse(node,finishLevel); }  
-      </li>
-      }
-      }
-    </ul>                                                            
-        
+    <aside class=" sidebar" style="float: left; width: 25%;">
+        <h2 class="sidebar-widget-title">@parent.GetTitleOrName()</h2>
+        <nav>
+            <ul>
+                @foreach (var node in parent.Children.Where(x => x.IsVisible()))
+                {
+                    if (node != null)
+                    {
+                        var selected = Array.IndexOf(Model.Path.Split(','), node.Id.ToString()) >= 0 ? " class=\"active\"" : "";
+                        <li>
+                            <a @Html.Raw(selected) href="@node.GetAliasOrUrl()">@node.GetTitleOrName()</a>                                       
+                            @*if (selected!=""&&@node.Level<=finishLevel) { @traverse(node,finishLevel); }  *@
+                        </li>
+                    }
+                }
+            </ul>   
+        </nav>                                                         
+       
+    </aside>
+
 }

@@ -48,56 +48,49 @@
 
 
 
- <div id="mainContent" class="fc">
-      <div class="navigation">
-        @Html.Partial("NewsLeftNav",@Model.Content)
-      &nbsp;
-      </div>
+<div>
+    @Html.Partial("LeftNavigation",@Model.Content)
 
-       <div id="content">
+    <div  class="" style="float: left;width: 75%;padding-left: 30px;">
        
-            @Html.Raw(Model.Content.GetPropertyValue<string>("bodyText"))
+        @Html.Raw(Model.Content.GetPropertyValue<string>("bodyText"))
 
            
-               <ul id="newsList">
-    @foreach (var item in nodes.Skip((page - 1) * pageSize).Take(pageSize))
-    {
-     <li>
-            <h3>
-              <a href="@item.NiceUrl()">
-                @item.GetTitleOrName()
-              </a>
-            </h3>
-            <p class="articleDate">
-                @Convert.ToDateTime(item.GetPropertyValue("articleDate")).ToString("dd MMMM yyyy")
-            </p>
-            <p>
-                @item.GetPropertyValue("articleSummary")
-              
-            </p>
-        </li>   
-    }
-</ul>
-
-@if(totalPages > 1)
-{
-
-      <p id="pager">
-    @for (int p = 1; p < totalPages + 1; p++)
-    {
-        //string selected = (p == page) ? "selected" : String.Empty;
-        //<li class="@selected"><a href="?page=@p" title="Go to page @p of results">@p</a></li> 
-        <a href="?page=@p" title="Go to page @p of results">@p</a>
-        if (p < totalPages)
+               
+        @foreach (var item in nodes.Skip((page - 1) * pageSize).Take(pageSize))
         {
-            <text>| </text>
+            <article>
+                <h3>
+                    <a href="@item.NiceUrl()">
+                        @item.GetTitleOrName()
+                    </a>
+                </h3>
+                <p class="articleDate">
+                    @Convert.ToDateTime(item.GetPropertyValue("articleDate")).ToString("dd MMMM yyyy")
+                </p>
+                <p>
+                    @item.GetPropertyValue("articleSummary")
+              
+                </p>
+            </article>   
         }
-    }
-</p>
-}
 
 
-       </div>
-     
-        @Html.Partial("ContentPanels",@Model.Content)
+        @if(totalPages > 1)
+        {
+
+            <ul class="pagination">
+                @for (int p = 1; p < totalPages + 1; p++)
+                {
+                    var selected = p == page ? " class=\"active\"" : "";
+                    <li @Html.Raw(selected)><a href="?page=@p">@p</a></li>
+                }
+            </ul>
+        }
+
+
     </div>
+     
+    @Html.Partial("ContentPanels",@Model.Content)
+    <div class="clearfix"></div>
+</div>
