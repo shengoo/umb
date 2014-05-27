@@ -51,29 +51,20 @@
 <div class="clearfix">
     @Html.Partial("LeftNavigation",@Model.Content)
 
-    <div  class="" style="float: left;width: 75%;padding-left: 30px;">
+    <div  class="aboutlist" style="float: left;width: 75%;padding-left: 30px;">
        
         
-        <h2>@Model.Content.GetTitleOrName()</h2>
+        <h2 class="list_title">@Model.Content.GetTitleOrName()</h2>
            
                
         @foreach (var item in nodes.Skip((page - 1) * pageSize).Take(pageSize))
         {
-            <article>
-                <img src="@item.GetPropertyValue("image")" />
-                <h3>
-                    <a href="@item.NiceUrl()">
-                        @item.GetTitleOrName()
-                    </a>
-                </h3>
-                <p class="articleDate">
-                    @Convert.ToDateTime(item.UpdateDate).ToString("D")
-                </p>
-                <p>
-                    @item.GetPropertyValue("productSummary")
-              
-                </p>
-            </article>   
+            <div>
+                <a href="@item.GetAliasOrUrl()">
+                    <img src="@item.GetPropertyValue("image")" />
+                    <p>@item.GetTitleOrName()</p>
+                </a>   
+            </div>
         }
 
 

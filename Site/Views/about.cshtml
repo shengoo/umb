@@ -1,4 +1,25 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@using Site.App_Code
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "SW_Master.cshtml";
 }
+
+<div class="clearfix">
+      
+    @Html.Partial("LeftNavigation",@Model.Content)
+
+    <div  class="" style="float: left;width: 75%;padding-left: 30px;">
+        <h3>
+            @Model.Content.GetTitleOrName()
+        </h3>
+        <p>
+            @Convert.ToDateTime(Model.Content.UpdateDate).ToString("D")
+        </p>
+        <p>
+            @Html.Raw(Model.Content.GetPropertyValue<string>("bodyText"))
+        </p>
+        
+    </div>
+     
+    @Html.Partial("ContentPanels",@Model.Content)
+</div>
