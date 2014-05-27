@@ -299,6 +299,8 @@
     </Content>
     <Content Include="Views\Partials\TopNav.cshtml" />
     <Content Include="Views\Partials\FooterNav.cshtml" />
+    <Content Include="Views\AboutList.cshtml" />
+    <Content Include="Views\about.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -48,13 +48,13 @@
 
 
 
-<div>
+<div class="clearfix">
     @Html.Partial("LeftNavigation",@Model.Content)
 
     <div  class="" style="float: left;width: 75%;padding-left: 30px;">
        
-        @Html.Raw(Model.Content.GetPropertyValue<string>("bodyText"))
-
+       
+        <h2>@Model.Content.GetTitleOrName()</h2>
            
                
         @foreach (var item in nodes.Skip((page - 1) * pageSize).Take(pageSize))
@@ -92,5 +92,4 @@
     </div>
      
     @Html.Partial("ContentPanels",@Model.Content)
-    <div class="clearfix"></div>
 </div>

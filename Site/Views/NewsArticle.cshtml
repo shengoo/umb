@@ -4,7 +4,7 @@
     Layout = "SW_Master.cshtml";
 }
 
-<div>
+<div class="clearfix">
       
     @Html.Partial("LeftNavigation",@Model.Content)
 
@@ -22,5 +22,4 @@
     </div>
      
     @Html.Partial("ContentPanels",@Model.Content)
-    <div class="clearfix"></div>
 </div>

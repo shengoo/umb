@@ -15,7 +15,7 @@
     /* This is your basic query to select the nodes you want */
 
     //var nodes = Model.Content.Children.Where(x => x.DocumentTypeAlias == "NewsArticle").OrderBy(x=>x.CreateDate);
-    var nodes = Model.Content.Descendants("ProductItem").OrderBy(x => x.CreateDate);
+    var nodes = Model.Content.Children.OrderBy(x => x.CreateDate);
 
     int totalNodes = nodes.Count();
     int totalPages = (int)Math.Ceiling((double)totalNodes / (double)pageSize);
@@ -60,6 +60,7 @@
         @foreach (var item in nodes.Skip((page - 1) * pageSize).Take(pageSize))
         {
             <article>
+                <img src="@item.GetPropertyValue("image")" />
                 <h3>
                     <a href="@item.NiceUrl()">
                         @item.GetTitleOrName()
