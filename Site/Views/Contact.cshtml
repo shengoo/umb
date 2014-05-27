@@ -2,16 +2,14 @@
 @{
     Layout = "SW_Master.cshtml";
 }
- <div id="mainContent" class="fc">
+<div>
      
-      <div class="navigation">
-        @Html.Partial("LeftNavigation",@Model.Content)
-          &nbsp;
-      </div>
+    @Html.Partial("LeftNavigation",@Model.Content)
 
-       <div id="content">
-            @Html.Raw(Model.Content.GetPropertyValue<string>("bodyText"))
+    <div  class="" style="float: left;width: 75%;padding-left: 30px;">
+        @Html.Raw(Model.Content.GetPropertyValue<string>("bodyText"))
            
-            @Html.Partial("ContactForm",new Koiak.StandardWebsite.ContactFormModel())
-       </div>
+        @Html.Partial("ContactForm",new Koiak.StandardWebsite.ContactFormModel())
+    </div>
+    <div class="clearfix"></div>
 </div>
