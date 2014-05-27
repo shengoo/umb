@@ -35,6 +35,13 @@ a:hover{
     color: #3B91FF;
 }
 
+.with_blue {
+font-size: 18px;
+padding: 6px;
+display: block;
+border-bottom: 3px solid #2388e1;
+}
+
 header nav ul{
     list-style: none;
     text-shadow: rgba(255,255,255,0.5) 0px 1px 1px;
@@ -382,10 +389,15 @@ article{
     float: left;
 }
 
+footer{
+	border: 1px solid #D9E3E2;
+	padding: 14px 21px;
+	padding-bottom: 40px;
+}
 
 footer ul{
     float: left;
-    width: 220px;
+    width: 200px;
     list-style: none;
     padding-top: 20px;
     padding-bottom: 15px;
@@ -401,4 +413,10 @@ footer a{
 
 .copyright{
     text-align: center;
+	border-top: #2388e1 3px solid;
+	margin-top: 25px;
+color: #999999;
+font-size: 12px;
+padding-top: 11px;
+line-height: 16px;
 }
