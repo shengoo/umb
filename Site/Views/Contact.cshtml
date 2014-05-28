@@ -1,13 +1,14 @@
+@using Site.App_Code
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "SW_Master.cshtml";
 }
-<div>
+<div class="clearfix">
      
     @Html.Partial("LeftNavigation",@Model.Content)
 
     <div  class="" style="float: left;width: 75%;padding-left: 30px;">
-        @Html.Raw(Model.Content.GetPropertyValue<string>("bodyText"))
+        <h2>@Html.Raw(Model.Content.GetTitleOrName())</h2>
            
         @Html.Partial("ContactForm",new Koiak.StandardWebsite.ContactFormModel())
     </div>

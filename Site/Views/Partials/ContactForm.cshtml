@@ -3,29 +3,30 @@
     Layout = null;
 }
 
-<h3>Contact Form</h3>
-@using (Html.BeginUmbracoForm("SendEmail", "ContactFormSurface"))
+@using (Html.BeginUmbracoForm("SendEmail", "ContactFormSurface", new {}, new {@class = "form-horizontal"}))
 {
-    <div class="formRow">
-        @Html.LabelFor(x => Model.Name)
-        @Html.EditorFor(x => Model.Name)
-        @Html.ValidationMessageFor(x => Model.Name)
-        </div>
-    
-    <div class="formRow">
-        @Html.LabelFor(x => Model.Email)
-        @Html.EditorFor(x => Model.Email)
-        @Html.ValidationMessageFor(x => Model.Email)
-        </div>
-    
-    <div class="formRow">
-        @Html.LabelFor(x => Model.Comment)
-        @Html.EditorFor(x => Model.Comment)
-        @Html.ValidationMessageFor(x => Model.Comment)
-        </div>
-    
-    
-<div class="buttonRow">
-    <input type="submit" name="Submit"/>
+    <div class="form-group">
+        @Html.LabelFor(x => Model.Name, new {@class = "col-sm-2 control-label"})
+        @Html.EditorFor(x => Model.Name, new {@class = "col-sm-6 form-control"})
+        @Html.ValidationMessageFor(x => Model.Name, "", new {@class = "alert"})
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => Model.Email, new {@class = "col-sm-2 control-label"})
+        @Html.EditorFor(x => Model.Email, new {@class = "col-sm-6 form-control"})
+        @Html.ValidationMessageFor(x => Model.Email, "", new {@class = "alert"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => Model.Comment, new {@class = "col-sm-2 control-label"})
+        @Html.EditorFor(x => Model.Comment, new {@class = "col-sm-6 form-control"})
+        @Html.ValidationMessageFor(x => Model.Comment, "", new {@class = "alert"})
+    </div>
+
+
+    <div>
+        <input class="btn btn-default" type="submit" name="Submit"/>
+    </div>
+
 }
+

@@ -59,18 +59,19 @@
 <!-- end of carousel -->
 
  
-<div class="fc">
-    <div class="feature fl">
+<div class="clearfix">
+    <div style="float: left;width: 50%;padding-right: 30px;min-height: 300px;">
+        <h2 class="with_blue">@Html.Raw(Model.Content.GetPropertyValue("panelTitle1").ToString())</h2>
         @Html.Raw(Model.Content.GetPropertyValue("panelContent1").ToString())
     </div>
 
-    <div class="feature fl">
-        @Html.Raw(Model.Content.GetPropertyValue("panelContent2").ToString())
+    <div style="float: left;width: 50%;min-height: 300px;">
+        @Html.Partial("LatestNews")
     </div>
+</div>
 
-    <div class="feature fr">
-        @Html.Raw(Model.Content.GetPropertyValue("panelContent3").ToString())
-    </div>
+<div class="home_prods clearfix">
+    @Html.Partial("LatestProduct")
 </div>
 
 @section styles

@@ -1,0 +1,24 @@
+﻿@using Site.App_Code
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var homepage = Model.Content.AncestorOrSelf(1);
+    var news = homepage.DescendantsOrSelf("NewsArticle").OrderBy(x => x.CreateDate).Take(6);
+}
+
+<h2 class="with_blue">@umbraco.library.GetDictionaryItem("latestNews")</h2>
+                    
+<ul class="news_body">
+    @foreach (var item in news)
+    {
+        if (item != null)
+        {
+            <li>
+                <a href="@item.GetAliasOrUrl()">
+                    <span class="time">@item.CreateDate.ToString("d")</span>
+                    <span class="news_line">@item.GetTitleOrName()</span>
+                </a>
+            </li>
+        }
+    }
+</ul>
+
