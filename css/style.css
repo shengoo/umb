@@ -152,6 +152,49 @@ article{
     margin-bottom: 65px;
 }
 
+
+/* homepage */
+.news_body{
+    padding: 0;
+}
+.news_body li {
+    border-bottom: #e3e3e3 solid 1px;
+    padding: 10px 0px;
+    display: block;
+    font-size: 12px;
+    color: #333333;
+    width: 100%;
+    float: left;
+}
+.news_body li a .time {
+    float: left;
+    color: #333333;
+    display: block;
+    width: 80px;
+    padding: 0px 10px;
+}
+.news_body li a .news_line {
+    float: left;
+    color: #005bac;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 360px;
+    display: block;
+}
+.home_prod_item{
+    float: left;
+    margin-right: 20px;
+}
+.home_prod_item p{
+    text-align: center;
+}
+.home_prod_item img{
+    width: 200px;
+    height: 150px;
+}
+/* end */
+
 /* about page */
 .aboutlist div {
     float: left;
