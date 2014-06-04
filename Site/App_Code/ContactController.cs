@@ -78,7 +78,6 @@ namespace Koiak.StandardWebsite
             body.AppendLine();
             body.AppendLine("Regards,");
             body.AppendLine();
-            body.AppendLine("Standard Website Robot");
 
 
             MailMessage mailMessage = new MailMessage();
