@@ -32,6 +32,7 @@
         <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png" />
 
         <script src="/scripts/vendor/jquery-1.11.1.min.js"></script>
+        <script src="/scripts/vendor/bootstrap.min.js"></script>
         @RenderSection("styles", required: false)
     </head>
     <body>
@@ -70,7 +71,6 @@
                 @Html.Raw(homepage.GetPropertyValue<string>("copyright"))
             </div>
         </div>
-        <script src="/scripts/vendor/bootstrap.min.js"></script>
         @RenderSection("scripts", required: false)
     </body>
 </html>

@@ -1,4 +1,4 @@
-@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "SW_Master.cshtml";
     var nodeIds = Model.Content.GetPropertyValue("slideshow").ToString().Split(',');
@@ -15,6 +15,8 @@
         }
     }
 }
+
+
  <!-- carousel -->
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -29,23 +31,20 @@
     <div class="carousel-inner">
         @foreach (var slide in slides)
         {
-            if (slide != null)
-            {
                 string styleString = slide.IsFirst() ? "active" : "";
                 <div class="item @Html.Raw(styleString)">
-                    <a href="#">
-                        <img src="@slide.GetPropertyValue("mainImage")"
-                             alt="@slide.Name">
+                    <a href="@slide.GetPropertyValue("link")">
+                        <img src="@slide.GetPropertyValue("mainImage")" />
                         <div class="carousel-caption">
-                            <h3>@slide.Name</h3>
-                            <p>@Html.Raw(slide.GetPropertyValue("bodyText"))</p>
                         </div>
                     </a>
                 </div>
-            }
+				
         }
         
     </div>
+		
+        
 
     <!-- Controls -->
     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -70,8 +69,12 @@
     </div>
 </div>
 
-<div class="home_prods clearfix">
+@*<div class="home_prods clearfix">
     @Html.Partial("LatestProduct")
+</div>*@
+	
+<div class="clearfix">
+	@Html.Partial("ProductFolderList")
 </div>
 
 @section styles

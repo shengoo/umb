@@ -1,0 +1,22 @@
+﻿@using Site.App_Code
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var supermodel = Model.Content.Children.Where(c => c.ContentType.Alias =="ProductFolder").First();
+    var folders = supermodel.Descendants("ProductFolder").Take(4);
+}
+
+<h2 class="with_blue">@supermodel.GetTitleOrName()</h2>
+<div class="productfolderlist">
+	@foreach (var item in folders)
+    {
+        if (item != null)
+        {
+            <div>
+                <a href="@item.GetAliasOrUrl()">
+                    <img src="@item.GetPropertyValue("image")" alt="@item.GetTitleOrName()" />
+                    <p>@item.GetTitleOrName()</p>
+                </a>   
+            </div>
+        }
+    }
+</div>
