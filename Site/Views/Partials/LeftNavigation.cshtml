@@ -3,33 +3,37 @@
 @{
     Layout = null;
     var parent = Model.AncestorOrSelf(2);
-    if(parent != null)
+    var deep = Model.DocumentTypeAlias == "ProductFolder" ? 4 : 3;
+    if (parent != null)
     {
-        @traverse(parent, 6)
+
+        <aside class=" sidebar" style="float: left; width: 25%;">
+            <h2 class="sidebar-widget-title">@parent.GetTitleOrName()</h2>
+            <nav>
+                @traverse(parent, deep)
+            </nav>    
+        </aside>
     }
 }
 
 
 @helper traverse(IPublishedContent parent, int finishLevel)
 {
-    <aside class=" sidebar" style="float: left; width: 25%;">
-        <h2 class="sidebar-widget-title">@parent.GetTitleOrName()</h2>
-        <nav>
-            <ul>
-                @foreach (var node in parent.Children.Where(x => x.IsVisible()))
-                {
-                    if (node != null)
+    <ul>
+        @foreach (var node in parent.Children.Where(x => x.IsVisible()))
+        {
+            if (node != null)
+            {
+                var selected = Array.IndexOf(Model.Path.Split(','), node.Id.ToString()) >= 0 ? " class=\"active\"" : "";
+                <li>
+                    <a @Html.Raw(selected) href="@node.GetAliasOrUrl()">@node.GetTitleOrName()</a>                                       
+                    @if (selected != "" && @node.Level <= finishLevel && @node.Children.Any())
                     {
-                        var selected = Array.IndexOf(Model.Path.Split(','), node.Id.ToString()) >= 0 ? " class=\"active\"" : "";
-                        <li>
-                            <a @Html.Raw(selected) href="@node.GetAliasOrUrl()">@node.GetTitleOrName()</a>                                       
-                            @*if (selected!=""&&@node.Level<=finishLevel) { @traverse(node,finishLevel); }  *@
-                        </li>
-                    }
-                }
-            </ul>   
-        </nav>                                                         
-       
-    </aside>
+                        @traverse(node, finishLevel)
+                    }  
+                </li>
+            }
+        }
+    </ul>
 
 }

@@ -2,12 +2,14 @@
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @if (Model.Content.Level == 2)
 {
-    var firstFolder = Model.Content.Descendant("ProductFolder");
-    
-<script>
-    window.location.href = "@firstFolder.Url";
-</script>
-}else{
+    var firstChild = Model.Content.Children.First();
+
+    <script>
+        window.location.href = "@firstChild.Url";
+    </script>
+}
+else
+{
 
     Layout = "SW_Master.cshtml";
     int pageSize = 10; // How many items per page
@@ -26,7 +28,7 @@
     var nodes = Model.Content.Descendants("ProductItem").OrderBy(x => x.CreateDate);
 
     int totalNodes = nodes.Count();
-    int totalPages = (int)Math.Ceiling((double)totalNodes / (double)pageSize);
+    int totalPages = (int) Math.Ceiling((double) totalNodes/(double) pageSize);
 
     /* Bounds checking */
 
@@ -40,64 +42,64 @@
     }
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 
 
-<div class="clearfix">
-    @Html.Partial("LeftNavigation", @Model.Content)
 
-    <div  class="" style="float: left;width: 75%;padding-left: 30px;">
+
+
+
+
+
+
+
+
+
+
+
+    <div class="clearfix">
+        @Html.Partial("LeftNavigation", @Model.Content)
+
+        <div  class="" style="float: left; width: 75%; padding-left: 30px;">
        
         
-        <h2 class="list_title">@Model.Content.GetTitleOrName()</h2>
+            <h2 class="list_title">@Model.Content.GetTitleOrName()</h2>
            
                
-        @foreach (var item in nodes.Skip((page - 1) * pageSize).Take(pageSize))
-        {
-            <article>
-                <h3>
-                    <a href="@item.NiceUrl()">
-                        @item.GetTitleOrName()
-                    </a>
-                </h3>
-                <p class="articleDate">
-                    @Convert.ToDateTime(item.UpdateDate).ToString("D")
-                </p>
-                <p>
-                    @item.GetPropertyValue("productSummary")
+            @foreach (var item in nodes.Skip((page - 1)*pageSize).Take(pageSize))
+            {
+                <article>
+                    <h3>
+                        <a href="@item.NiceUrl()">
+                            @item.GetTitleOrName()
+                        </a>
+                    </h3>
+                    <p class="articleDate">
+                        @Convert.ToDateTime(item.UpdateDate).ToString("D")
+                    </p>
+                    <p>
+                        @item.GetPropertyValue("productSummary")
               
-                </p>
-            </article>   
-        }
+                    </p>
+                </article>
+            }
 
 
-        @if (totalPages > 1)
-        {
+            @if (totalPages > 1)
+            {
 
-            <ul class="pagination">
-                @for (int p = 1; p < totalPages + 1; p++)
-                {
-                    var selected = p == page ? " class=\"active\"" : "";
-                    <li @Html.Raw(selected)><a href="?page=@p">@p</a></li>
-                }
-            </ul>
-        }
+                <ul class="pagination">
+                    @for (int p = 1; p < totalPages + 1; p++)
+                    {
+                        var selected = p == page ? " class=\"active\"" : "";
+                        <li @Html.Raw(selected)><a href="?page=@p">@p</a></li>
+                    }
+                </ul>
+            }
 
 
-    </div>
+        </div>
      
-    @Html.Partial("ContentPanels",@Model.Content)
-</div>
+        @Html.Partial("ContentPanels", @Model.Content)
+    </div>
 }

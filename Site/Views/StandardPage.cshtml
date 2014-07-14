@@ -1,15 +1,25 @@
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
-@{
-    Layout = "SW_Master.cshtml";
-}
-<div>
-      
-    @Html.Partial("LeftNavigation", @Model.Content)
+@if (Model.Content.Level == 2 && Model.Content.Children.Any())
+{
+    var firstChild = Model.Content.Children.First();
 
-    <div  class="" style="float: left;width: 75%;padding-left: 30px;">
-        @Html.Raw(Model.Content.GetPropertyValue<string>("bodyText"))
-    </div>
+    <script>
+        window.location.href = "@firstChild.Url";
+    </script>
+}
+else
+{
+    Layout = "SW_Master.cshtml";
+
+    <div>
+      
+        @Html.Partial("LeftNavigation", @Model.Content)
+
+        <div  class="" style="float: left; width: 75%; padding-left: 30px;">
+            @Html.Raw(Model.Content.GetPropertyValue<string>("bodyText"))
+        </div>
      
-    @Html.Partial("ContentPanels", @Model.Content)
-    <div class="clearfix"></div>
-</div>
+        @Html.Partial("ContentPanels", @Model.Content)
+        <div class="clearfix"></div>
+    </div>
+}

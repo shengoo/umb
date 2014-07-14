@@ -2,10 +2,10 @@
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @if (Model.Content.Level == 2)
 {
-    var firstFolder = Model.Content.Descendant("About");
+    var firstChild = Model.Content.Children.First();
 
     <script>
-        window.location.href = "@firstFolder.Url";
+        window.location.href = "@firstChild.Url";
     </script>
 }
 else
