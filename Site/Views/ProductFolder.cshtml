@@ -1,6 +1,14 @@
 ﻿@using Site.App_Code
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
-@{
+@if (Model.Content.Level == 2)
+{
+    var firstFolder = Model.Content.Descendant("ProductFolder");
+    
+<script>
+    window.location.href = "@firstFolder.Url";
+</script>
+}else{
+
     Layout = "SW_Master.cshtml";
     int pageSize = 10; // How many items per page
     int page; // The page we are viewing
@@ -44,12 +52,11 @@
     
     
     
-}
 
 
 
 <div class="clearfix">
-    @Html.Partial("LeftNavigation",@Model.Content)
+    @Html.Partial("LeftNavigation", @Model.Content)
 
     <div  class="" style="float: left;width: 75%;padding-left: 30px;">
        
@@ -76,7 +83,7 @@
         }
 
 
-        @if(totalPages > 1)
+        @if (totalPages > 1)
         {
 
             <ul class="pagination">
@@ -93,3 +100,4 @@
      
     @Html.Partial("ContentPanels",@Model.Content)
 </div>
+}
