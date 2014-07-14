@@ -303,6 +303,9 @@
     <Content Include="Views\about.cshtml" />
     <Content Include="Views\Partials\LatestNews.cshtml" />
     <Content Include="Views\Partials\LatestProduct.cshtml" />
+    <Content Include="Views\Partials\ProductFolderList.cshtml" />
+    <None Include="css\bootstrap-theme.css.map" />
+    <None Include="css\bootstrap.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
