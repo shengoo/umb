@@ -15,7 +15,7 @@
                     var selected = (Array.IndexOf(Model.Content.Path.Split(','), item.Id.ToString()) >= 0 && item.Level > 1)
                                    || (Model.Content.Id == homepage.Id && homepage.Id == item.Id)
                         ? " class=\"active\"" : "";
-                    <li @Html.Raw(selected)><a href="@item.GetAliasOrUrl()">@item.GetTitleOrName()</a></li>
+                    <li @Html.Raw(selected)><a href="@item.GetAliasOrUrl()">@item.Name</a></li>
                 }
             }
         </ul>

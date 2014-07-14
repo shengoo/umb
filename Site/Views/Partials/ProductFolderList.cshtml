@@ -1,7 +1,7 @@
 ﻿@using Site.App_Code
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-    var supermodel = Model.Content.Children.Where(c => c.ContentType.Alias =="ProductFolder").First();
+    var supermodel = Model.Content.Children.First(c => c.ContentType.Alias =="ProductFolder");
     var folders = supermodel.Descendants("ProductFolder").Take(4);
 }
 
