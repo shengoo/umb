@@ -3,7 +3,7 @@
 @{
     Layout = null;
     var parent = Model.AncestorOrSelf(2);
-    var deep = Model.DocumentTypeAlias == "ProductFolder" ? 4 : 3;
+    var deep = Model.DocumentTypeAlias == "ProductFolder" || Model.DocumentTypeAlias == "ProductItem" ? 4 : 3;
     if (parent != null)
     {
 
@@ -27,7 +27,7 @@
                 var selected = Array.IndexOf(Model.Path.Split(','), node.Id.ToString()) >= 0 ? " class=\"active\"" : "";
                 <li>
                     <a @Html.Raw(selected) href="@node.GetAliasOrUrl()">@node.GetTitleOrName()</a>                                       
-                    @if (selected != "" && @node.Level <= finishLevel && @node.Children.Any())
+                    @if (selected != "" && @node.Level < finishLevel && @node.Children.Any())
                     {
                         @traverse(node, finishLevel)
                     }  
