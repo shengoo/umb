@@ -63,7 +63,7 @@ else
         <div  class="" style="float: left; width: 75%; padding-left: 30px;">
        
         
-            <h2 class="list_title">@Model.Content.GetTitleOrName()</h2>
+            @*<h2 class="list_title">@Model.Content.GetTitleOrName()</h2>*@
            
                
             @foreach (var item in nodes.Skip((page - 1)*pageSize).Take(pageSize))
@@ -74,9 +74,9 @@ else
                             @item.GetTitleOrName()
                         </a>
                     </h3>
-                    <p class="articleDate">
+                    @*<p class="articleDate">
                         @Convert.ToDateTime(item.UpdateDate).ToString("D")
-                    </p>
+                    </p>*@
                     <p>
                         @item.GetPropertyValue("productSummary")
               
