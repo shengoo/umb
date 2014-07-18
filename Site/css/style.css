@@ -109,7 +109,6 @@ main{
 }
 
 .sidebar{
-    margin: 30px 0;
     display: inline-block;
 }
 .sidebar ul{
@@ -364,6 +363,37 @@ padding-bottom: 45px;
     background: rgb(236, 240, 241);
 
 }
+
+/* news page start */
+
+.news_list li{
+    border-bottom: #e3e3e3 solid 1px;
+    padding: 10px 0px;
+    display: block;
+    width: 100%;
+    float: left;
+}
+
+.news_list .news_name {
+    float: left;
+    color: #005bac;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 360px;
+    display: block;
+}
+
+.news_list .news_date {
+    float: right;
+    color: #333333;
+    display: block;
+    width: 80px;
+    padding: 0px 10px;
+}
+
+
+/* news page end  */
 
 
 

@@ -54,27 +54,31 @@
     <div  class="" style="float: left;width: 75%;padding-left: 30px;">
        
        
-        <h2 class="list_title">@Model.Content.GetTitleOrName()</h2>
+        @*<h2 class="list_title">@Model.Content.GetTitleOrName()</h2>*@
            
-               
-        @foreach (var item in nodes.Skip((page - 1) * pageSize).Take(pageSize))
-        {
-            <article>
-                <h3>
-                    <a href="@item.NiceUrl()">
-                        @item.GetTitleOrName()
-                    </a>
-                </h3>
-                <p class="articleDate">
-                    @Convert.ToDateTime(item.GetPropertyValue("articleDate")).ToString("D")
-                </p>
-                <p>
+        <div class="news_list">
+            <ul>
+            @foreach (var item in nodes.Skip((page - 1)*pageSize).Take(pageSize))
+            {
+                <li>
+                    
+                    <span class="news_name">
+                        <a href="@item.Url">
+                            @item.GetTitleOrName()
+                        </a>
+                    </span>
+                    
+                    <span class="news_date">
+                        @Convert.ToDateTime(item.GetPropertyValue("articleDate")).ToString("d")
+                    </span>
+                    @*<p>
                     @item.GetPropertyValue("articleSummary")
               
-                </p>
-            </article>   
-        }
-
+                </p>*@
+                </li>
+            }
+            </ul>
+        </div>
 
         @if(totalPages > 1)
         {
