@@ -67,9 +67,9 @@
                     <p>@Html.Raw(homepage.GetPropertyValue<string>("copyright"))</p>
                 </div>
             </div>*@
-            <div class="copyright">
+            <pre class="copyright">
                 @Html.Raw(homepage.GetPropertyValue<string>("copyright"))
-            </div>
+            </pre>
         </div>
         @RenderSection("scripts", required: false)
 <script type="text/javascript">

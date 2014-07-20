@@ -542,8 +542,6 @@ footer a{
     text-align: center;
 	border-top: #2388e1 3px solid;
 	margin-top: 25px;
-color: #999999;
-font-size: 12px;
-padding-top: 11px;
-line-height: 16px;
+    color: #999999;
+    padding-top: 11px;
 }
