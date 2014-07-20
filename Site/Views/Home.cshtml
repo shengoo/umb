@@ -1,5 +1,8 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@using Media = umbraco.cms.businesslogic.media.Media
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
+
+    var comInfoImage = new Media(Convert.ToInt32(Model.Content.GetPropertyValue("comInfoImage")));
     Layout = "SW_Master.cshtml";
     var nodeIds = Model.Content.GetPropertyValue("slideshow").ToString().Split(',');
     List<IPublishedContent> slides = new List<IPublishedContent>();
@@ -60,8 +63,9 @@
  
 <div class="clearfix">
     <div style="float: left;width: 50%;padding-right: 30px;min-height: 300px;">
-        <h2 class="with_blue">@Html.Raw(Model.Content.GetPropertyValue("panelTitle1").ToString())</h2>
-        @Html.Raw(Model.Content.GetPropertyValue("panelContent1").ToString())
+        <h2 class="with_blue">@Html.Raw(Model.Content.GetPropertyValue("comInfoTitle").ToString())</h2>
+        <img src="@comInfoImage.getProperty("umbracoFile").Value.ToString()" align="left"/>
+        @Html.Raw(Model.Content.GetPropertyValue("comInfoText").ToString())
     </div>
 
     <div style="float: left;width: 50%;min-height: 300px;">
