@@ -1,4 +1,5 @@
-﻿@using Media = umbraco.cms.businesslogic.media.Media
+﻿@using umbraco.cms.businesslogic.web
+@using Media = umbraco.cms.businesslogic.media.Media
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
 
@@ -42,11 +43,11 @@
                         </div>
                     </a>
                 </div>
-				
+                
         }
         
     </div>
-		
+        
         
 
     <!-- Controls -->
@@ -66,6 +67,12 @@
         <h2 class="with_blue">@Html.Raw(Model.Content.GetPropertyValue("comInfoTitle").ToString())</h2>
         <img src="@comInfoImage.getProperty("umbracoFile").Value.ToString()" align="left"/>
         @Html.Raw(Model.Content.GetPropertyValue("comInfoText").ToString())
+        <a 
+            href="@(Model.Content.GetPropertyValue("moreAddr")!=null
+                        ?Umbraco.TypedContent(Model.Content.GetPropertyValue("moreAddr")).Url
+                        :"#")">
+            >>@library.GetDictionaryItem("more")
+        </a>
     </div>
 
     <div style="float: left;width: 50%;min-height: 300px;">
@@ -76,9 +83,9 @@
 @*<div class="home_prods clearfix">
     @Html.Partial("LatestProduct")
 </div>*@
-	
+    
 <div class="clearfix">
-	@Html.Partial("ProductFolderList")
+    @Html.Partial("ProductFolderList")
 </div>
 
 @section styles
