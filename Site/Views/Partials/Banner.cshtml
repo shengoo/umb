@@ -1,0 +1,32 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var banner = FindContentWithBanner(Model.Content);
+}
+@if (banner != null)
+{
+    var img = Umbraco.TypedMedia(banner.GetPropertyValue("banner"));
+    <div class="inbanner">
+        <img src="@img.Url" style="width: 100%;">
+    </div>
+}
+
+
+@functions
+{
+
+    public IPublishedContent FindContentWithBanner(IPublishedContent child)
+    {
+        if (child.Level == 1)
+            return null;
+        if (child.HasProperty("banner"))
+        {
+            if (child.GetPropertyValue("banner") != null)
+            {
+                return child;
+            }
+            return FindContentWithBanner(child.Parent);
+        }
+        return FindContentWithBanner(child.Parent);
+    }
+
+}

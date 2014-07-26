@@ -221,6 +221,11 @@ article{
 }
 /* end */
 
+.inbanner {
+    padding-bottom: 17px;
+    background: url(../images/inbannerbg.jpg) no-repeat left bottom;
+}
+
 /* about page */
 .aboutlist div {
     float: left;

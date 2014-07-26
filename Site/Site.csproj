@@ -335,6 +335,7 @@
     <Content Include="config\404handlers.config" />
     <None Include="css\bootstrap-theme.css.map" />
     <None Include="css\bootstrap.css.map" />
+    <Content Include="Views\Partials\Banner.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
