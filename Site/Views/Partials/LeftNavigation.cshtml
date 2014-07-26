@@ -1,6 +1,7 @@
 ﻿@using Site.App_Code
 @inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
 @{
+    var homepage = Model.AncestorOrSelf(1);
     Layout = null;
     var parent = Model.AncestorOrSelf(2);
     var deep = Model.DocumentTypeAlias == "ProductFolder" || Model.DocumentTypeAlias == "ProductItem" ? 4 : 3;
@@ -11,11 +12,23 @@
             <h2 class="sidebar-widget-title">@parent.GetTitleOrName()</h2>
             <nav>
                 @traverse(parent, deep)
-            </nav>    
+            </nav> 
+            @if (homepage.HasProperty("leftStatic"))
+            {
+                <div style="border: 1px solid #e1e1e1; margin: 15px; padding: 10px; text-align: center;">
+                    @foreach (var item in Umbraco.TypedContent(homepage.GetPropertyValue<string>("leftStatic").Split(',')))
+                    {
+                        if (item != null)
+                        {
+                            <p>
+                                <a href="@item.GetAliasOrUrl()">@item.Name</a></p>
+                        }
+                    }
+                </div>
+            }
         </aside>
     }
 }
-
 
 @helper traverse(IPublishedContent parent, int finishLevel)
 {
