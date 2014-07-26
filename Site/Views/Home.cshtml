@@ -67,7 +67,7 @@
         <h2 class="with_blue">@Html.Raw(Model.Content.GetPropertyValue("comInfoTitle").ToString())</h2>
         <img src="@comInfoImage.getProperty("umbracoFile").Value.ToString()" align="left"/>
         @Html.Raw(Model.Content.GetPropertyValue("comInfoText").ToString())
-        <a 
+        <a style="float: right;"
             href="@(Model.Content.GetPropertyValue("moreAddr")!=null
                         ?Umbraco.TypedContent(Model.Content.GetPropertyValue("moreAddr")).Url
                         :"#")">
