@@ -16,7 +16,7 @@
             <li>
                 <a href="@item.GetAliasOrUrl()" class="clearfix">
                     <span class="time">@item.CreateDate.ToString("d")</span>
-                    <span class="news_line">@item.GetTitleOrName()</span>
+                    <span class="news_line" title="@item.GetTitleOrName()">@item.GetTitleOrName()</span>
                 </a>
             </li>
         }
