@@ -9,12 +9,12 @@
     @Html.Partial("LeftNavigation",@Model.Content)
 
     <div  class="" style="float: left;width: 75%;padding-left: 30px;">
-        <h3>
+        @*<h3>
             @Model.Content.GetTitleOrName()
         </h3>
         <p>
             @Convert.ToDateTime(Model.Content.UpdateDate).ToString("D")
-        </p>
+        </p>*@
         <p>
             @Html.Raw(Model.Content.GetPropertyValue<string>("bodyText"))
         </p>
