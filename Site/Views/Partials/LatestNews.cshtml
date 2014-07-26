@@ -3,17 +3,18 @@
 @{
     var homepage = Model.Content.AncestorOrSelf(1);
     var news = homepage.DescendantsOrSelf("NewsArticle").OrderBy(x => x.CreateDate).Take(6);
+    var newsImage = Umbraco.TypedMedia(homepage.GetPropertyValue("newsImage"));
 }
 
 <h2 class="with_blue">@umbraco.library.GetDictionaryItem("latestNews")</h2>
-                    
-<ul class="news_body">
+<img src="@newsImage.Url" width="@(homepage.GetPropertyValue("newsImageWidth").ToString())" height="@(homepage.GetPropertyValue("newsImageHeight").ToString())" style="float: left;" />
+<ul class="news_body clearfix">
     @foreach (var item in news)
     {
         if (item != null)
         {
             <li>
-                <a href="@item.GetAliasOrUrl()">
+                <a href="@item.GetAliasOrUrl()" class="clearfix">
                     <span class="time">@item.CreateDate.ToString("d")</span>
                     <span class="news_line">@item.GetTitleOrName()</span>
                 </a>

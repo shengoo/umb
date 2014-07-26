@@ -1,6 +1,6 @@
 body{
-	background-image: url(../images/background_noon.jpg);
-	background-repeat: no-repeat;
+    background-image: url(../images/background_noon.jpg);
+    background-repeat: no-repeat;
 }
 
 a:hover{
@@ -118,9 +118,9 @@ main{
 .sidebar ul li{
     list-style: none;
     position: relative;/*
-	height: 46px;
-	min-height: 46px;
-	max-height: 46px;*/
+    height: 46px;
+    min-height: 46px;
+    max-height: 46px;*/
     border: 1px solid #e1e1e1;
     border-top: none;
 
@@ -170,6 +170,7 @@ article{
 /* homepage */
 .news_body{
     padding: 0;
+    overflow: auto;
 }
 .news_body li {
     border-bottom: #e3e3e3 solid 1px;
@@ -178,22 +179,19 @@ article{
     font-size: 12px;
     color: #333333;
     width: 100%;
-    float: left;
 }
 .news_body li a .time {
     float: left;
     color: #333333;
     display: block;
-    width: 80px;
     padding: 0px 10px;
 }
 .news_body li a .news_line {
-    float: left;
+    /*float: left;*/
     color: #005bac;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 360px;
     display: block;
 }
 .home_prod_item{
@@ -517,9 +515,9 @@ padding-bottom: 45px;
 }
 
 footer{
-	border: 1px solid #D9E3E2;
-	padding: 14px 21px;
-	padding-bottom: 40px;
+    border: 1px solid #D9E3E2;
+    padding: 14px 21px;
+    padding-bottom: 40px;
 }
 
 footer ul{
@@ -540,8 +538,8 @@ footer a{
 
 .copyright{
     text-align: center;
-	border-top: #2388e1 3px solid;
-	margin-top: 25px;
+    border-top: #2388e1 3px solid;
+    margin-top: 25px;
     color: #999999;
     padding-top: 11px;
 }
