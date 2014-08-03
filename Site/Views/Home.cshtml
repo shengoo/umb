@@ -2,7 +2,7 @@
 @using Media = umbraco.cms.businesslogic.media.Media
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-
+    var homepage = Model.Content.AncestorOrSelf(1);
     var comInfoImage = new Media(Convert.ToInt32(Model.Content.GetPropertyValue("comInfoImage")));
     Layout = "SW_Master.cshtml";
     var nodeIds = Model.Content.GetPropertyValue("slideshow").ToString().Split(',');
@@ -63,10 +63,13 @@
 
  
 <div class="clearfix">
-    <div style="float: left;width: 50%;padding-right: 30px;min-height: 300px;">
+    <div style="float: left;width: 50%;padding-right: 30px;">
         <h2 class="with_blue">@Html.Raw(Model.Content.GetPropertyValue("comInfoTitle").ToString())</h2>
-        <img src="@comInfoImage.getProperty("umbracoFile").Value.ToString()" align="left"/>
-        @Html.Raw(Model.Content.GetPropertyValue("comInfoText").ToString())
+        <img width="@(homepage.GetPropertyValue("newsImageWidth").ToString())" height="@(homepage.GetPropertyValue("newsImageHeight").ToString())" 
+             src="@comInfoImage.getProperty("umbracoFile").Value.ToString()" align="left" style="padding-right: 15px;" />
+        
+        <div> @Html.Raw(Model.Content.GetPropertyValue("comInfoText").ToString())</div>
+       
         <a style="float: right;"
             href="@(Model.Content.GetPropertyValue("moreAddr")!=null
                         ?Umbraco.TypedContent(Model.Content.GetPropertyValue("moreAddr")).Url
@@ -75,7 +78,7 @@
         </a>
     </div>
 
-    <div style="float: left;width: 50%;min-height: 300px;">
+    <div style="float: left;width: 50%;">
         @Html.Partial("LatestNews")
     </div>
 </div>

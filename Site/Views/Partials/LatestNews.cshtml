@@ -7,17 +7,18 @@
 }
 
 <h2 class="with_blue">@umbraco.library.GetDictionaryItem("latestNews")</h2>
-<img src="@newsImage.Url" width="@(homepage.GetPropertyValue("newsImageWidth").ToString())" height="@(homepage.GetPropertyValue("newsImageHeight").ToString())" style="float: left;" />
+<img src="@newsImage.Url" width="@(homepage.GetPropertyValue("newsImageWidth").ToString())" height="@(homepage.GetPropertyValue("newsImageHeight").ToString())" 
+     style="float: left;padding-right: 15px;" />
 <ul class="news_body clearfix">
     @foreach (var item in news)
     {
         if (item != null)
         {
             <li>
-                <a href="@item.GetAliasOrUrl()" class="clearfix">
-                    <span class="time">@item.CreateDate.ToString("d")</span>
-                    <span class="news_line" title="@item.GetTitleOrName()">@item.GetTitleOrName()</span>
-                </a>
+                
+                    <span class="time" style="float: right;">@item.CreateDate.ToString("d")</span>
+                    <span class="news_line" title="@item.GetTitleOrName()"><a href="@item.GetAliasOrUrl()" class="clearfix blacklink">@item.GetTitleOrName() </a></span>
+               
             </li>
         }
     }
