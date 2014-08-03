@@ -1,6 +1,10 @@
-body{
+﻿body{
     background-image: url(../images/background_noon.jpg);
     background-repeat: no-repeat;
+}
+
+h2 {
+    font-family: 微软雅黑;
 }
 
 a:hover{
@@ -11,10 +15,10 @@ a:hover{
     margin: 40px auto;
     width: 960px;
     background-color: #ffffff;
-    box-shadow: 0px 0px 7px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0px 0px 7px rgba(0,0,0,0.3);
-    -webkit-box-shadow: 0px 0px 7px rgba(0,0,0,0.3);
-    -o-box-shadow: 0px 0px 7px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 2px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0px 0px 2px rgba(0,0,0,0.3);
+    -o-box-shadow: 0px 0px 2px rgba(0,0,0,0.3);
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -29,18 +33,55 @@ a:hover{
     width:300px;
 }
 
-.lang_s{
+/*.lang_s{
     margin: 30px 30px 0 0;
     display: inline-block;
     float: right;
     color: #3B91FF;
+}*/
+
+.search-wrap {
+background: url('../images/searchbox.jpg') no-repeat;
+height: 29px;
+    width: 205px;
+}
+.fright {
+float: right;
+}
+
+#sp-searchtext {
+background-color: transparent;
+outline: none;
+width: 150px;
+/*height: 19px;*/
+border: 0;
+padding: 5px 0px 5px 10px;
+vertical-align: top;
+}
+.search-submit {
+width: 45px;
+background-color: transparent;
+border: 0;
+cursor: pointer;
+height: 29px;
+}
+.topright {
+padding-top: 40px;
+}
+.topright .lang_s {
+display: inline-block;
+float: right;
+margin-right: 5px;
+color: #005aab;
+padding-top: 3px;
+padding-right: 10px;
 }
 
 .with_blue {
 font-size: 18px;
 padding: 6px;
 display: block;
-border-bottom: 3px solid #2388e1;
+border-bottom: 2px solid #2388e1;
 }
 
 header nav ul{
@@ -62,6 +103,7 @@ header nav ul li:hover{
 }
 
 header nav ul li a{
+    font-family: 微软雅黑;
     line-height: 40px;
     font-size: 1.2em;
     text-align: center;
@@ -70,6 +112,11 @@ header nav ul li a{
     background: #e6edf2;
     display: inline-block;
     width: 100%;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    text-decoration: none;
 }
 
 header nav li.active a{
@@ -78,12 +125,13 @@ header nav li.active a{
 }
 
 .breadcrumb{
-    padding: 18px 15px;
+    font-size: 12px;
+    /*padding: 18px 15px;*/
     margin: 20px 0;
 }
 
 main{
-    border-bottom: solid 1px #e3e7e9;
+    /*border-bottom: solid 1px #e3e7e9;*/
     margin-bottom: 6px;
 }
 
@@ -110,6 +158,7 @@ main{
 
 .sidebar{
     display: inline-block;
+    font-family: 微软雅黑;
 }
 .sidebar ul{
     margin: 0;
@@ -131,7 +180,7 @@ main{
 .sidebar ul li a{
     color: #088ac8;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 5px 25px;
     display: inline-block;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -141,6 +190,7 @@ main{
 
 .sidebar li a.active{
     background: #ecf0f1;
+    border-bottom: 1px solid #e1e1e1;
 }
 /*.sidebar li a:hover:before{
     content: '';
@@ -154,9 +204,14 @@ main{
 
 .sidebar li li{
     border: none;
+    font-size: 12px;
 }
 .sidebar li li a {
-    padding: 5px 5px 5px 30px;
+    padding: 1px 5px 1px 40px;
+}
+.sidebar li li a.active{
+    background: #ecf0f1;
+    border-bottom: none;
 }
 .sidebar li li a:hover {
     
@@ -381,7 +436,7 @@ padding-bottom: 45px;
 /* news page start */
 
 .news_list li{
-    border-bottom: #e3e3e3 solid 1px;
+    border-bottom: #e3e3e3 dotted 1px;
     padding: 10px 0px;
     display: block;
     width: 100%;
@@ -396,14 +451,18 @@ padding-bottom: 45px;
     white-space: nowrap;
     width: 360px;
     display: block;
+    font-size: 12px;
+    padding: 0 20px;
 }
 
 .news_list .news_date {
     float: right;
     color: #333333;
     display: block;
-    width: 80px;
+    width: 180px;
     padding: 0px 10px;
+    font-size: 12px;
+    padding: 0 20px;
 }
 
 
@@ -554,8 +613,31 @@ footer a{
 
 .copyright{
     text-align: center;
-    border-top: #2388e1 3px solid;
+    border-top: #2388e1 2px solid;
     margin-top: 25px;
     color: #999999;
     padding-top: 11px;
+}
+
+header nav ul li {
+    border: 1px #afdfdf solid;
+}
+
+.fast_meun {
+width: 218px;
+border: #ccc 1px solid;
+height: 192px;
+font-size: 12px;
+line-height: 19px;
+margin-top: 100px;
+position: absolute;
+}
+
+.pagination {
+    font-size: 12px;
+}
+
+.pagination>li>a .pagination>li>span {
+    margin: 1px 2px;
+    line-height: 12px;
 }

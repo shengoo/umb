@@ -84,18 +84,18 @@ else
                 </article>
             }
 
-
-            @if (totalPages > 1)
-            {
-
-                <ul class="pagination">
+            
+            <div>
+                <ul class="pagination" style="display: table;margin: 20px auto;">
+                    <li><span>上一页</span></li>
                     @for (int p = 1; p < totalPages + 1; p++)
                     {
                         var selected = p == page ? " class=\"active\"" : "";
                         <li @Html.Raw(selected)><a href="?page=@p">@p</a></li>
                     }
+                    <li><a>下一页</a></li>
                 </ul>
-            }
+            </div>
 
 
         </div>

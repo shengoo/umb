@@ -5,8 +5,12 @@
     var news = homepage.DescendantsOrSelf("NewsArticle").OrderBy(x => x.CreateDate).Take(6);
     var newsImage = Umbraco.TypedMedia(homepage.GetPropertyValue("newsImage"));
 }
-
-<h2 class="with_blue">@umbraco.library.GetDictionaryItem("latestNews")</h2>
+    <h2 class="with_blue">@umbraco.library.GetDictionaryItem("latestNews")
+        <a href="@(Model.Content.GetPropertyValue("newsLink")!=null
+                       ? Umbraco.TypedContent(Model.Content.GetPropertyValue("newsLink")).Url
+                        :"#")"><img src="images/more.jpg" style="float: right;margin-top: 10px;"></a>
+    </h2>
+    
 <img src="@newsImage.Url" width="@(homepage.GetPropertyValue("newsImageWidth").ToString())" height="@(homepage.GetPropertyValue("newsImageHeight").ToString())" 
      style="float: left;padding-right: 15px;" />
 <ul class="news_body clearfix">

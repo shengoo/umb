@@ -5,6 +5,7 @@
     Layout = null;
     var parent = Model.AncestorOrSelf(2);
     var deep = Model.DocumentTypeAlias == "ProductFolder" || Model.DocumentTypeAlias == "ProductItem" ? 4 : 3;
+    var links = Umbraco.TypedContent(homepage.GetPropertyValue<string>("leftStatic").Split(',')).ToArray();
     if (parent != null)
     {
 
@@ -13,7 +14,7 @@
             <nav>
                 @traverse(parent, deep)
             </nav> 
-            @if (homepage.HasProperty("leftStatic"))
+            @*@if (homepage.HasProperty("leftStatic"))
             {
                 <div style="border: 1px solid #e1e1e1; margin: 15px; padding: 10px; text-align: center;">
                     @foreach (var item in Umbraco.TypedContent(homepage.GetPropertyValue<string>("leftStatic").Split(',')))
@@ -25,7 +26,11 @@
                         }
                     }
                 </div>
-            }
+            }*@
+            <div class="" style="margin: 15px;">
+                <div class="ny-lj"> <a href="@links[0].Url"><img src="/images/lx.jpg"></a></div>
+                <div style="margin-bottom: 20px;" class="ny-lj"> <a href="@links[1].Url"><img src="/images/pro.jpg"></a></div>
+            </div>
         </aside>
     }
 }
@@ -50,3 +55,16 @@
     </ul>
 
 }
+@*<script>
+    $(function () {
+        $(".sidebar").append("<div style='width:" + $(".fast_meun").width() + "px;height:" + $(".fast_meun").height() + "px;margin-top:50px'></div>");
+        var fast_margin = 0;
+        if ($(".fast_meun").length > 0) {
+            fast_margin = $(".sidebar").height() - $(".fast_meun").height();
+            $(".fast_meun").css("margin-top", fast_margin + "px");
+            $(".fast_meun").stickyfloat({ duration: 0, startOffset: fast_margin });
+
+        }
+    });
+    
+</script>*@
