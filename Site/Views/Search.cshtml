@@ -56,14 +56,14 @@
     }
     
 }
-<div id="mainContent" class="fc">
+<div class="clearfix">
     <div class="navigation">
         @Html.Partial("LeftNavigation", @Model.Content)
         &nbsp;
-     
+
     </div>
 
-    <div id="content">
+    <div style="float: left; width: 75%; padding-left: 30px;">
         @Html.Raw(Model.Content.GetPropertyValue<string>("bodyText"))
 
         @if (totalNodes == 0)
@@ -104,34 +104,52 @@
                         <p>@Html.Raw(searchHiglight)</p>
 
                         <!--<dl>
-                      
-                  @foreach (var field in item.Fields)
-                  {
-                      <dt>@field.Key</dt>
-                      <dd>@field.Value</dd>
-                  }
-                      </dl>-->
-                    </li>   
+
+                        @foreach (var field in item.Fields)
+                        {
+                            <dt>@field.Key</dt>
+                            <dd>@field.Value</dd>
+                        }
+                            </dl>-->
+                    </li>
                 }
             </ul>
         }
 
-        @if (totalPages > 1)
+        @*@if (totalPages > 1)
         {
 
             <p id="pager">
                 @for (int p = 1; p < totalPages + 1; p++)
                 {
                     //string selected = (p == page) ? "selected" : String.Empty;
-                    //<li class="@selected"><a href="?page=@p" title="Go to page @p of results">@p</a></li> 
+                    //<li class="@selected"><a href="?page=@p" title="Go to page @p of results">@p</a></li>
                     <a href="?search=@searchTerm&amp;page=@p" title="Go to page @p of results">@p</a>
                     if (p < totalPages)
                     {
-                    <text>| </text>
+                        <text>| </text>
                     }
                 }
             </p>
-        }
+        }*@
+        <div>
+            <ul class="pagination" style="display: table;margin: 20px auto;">
+                @Html.Raw(page == 1 ? "<li><span>" + library.GetDictionaryItem("firstpage") + "</span></li>"
+                                  : "<li><a href='?search=@searchTerm&amp;page=1'>" + library.GetDictionaryItem("firstpage") + "</a></li>")
+                @Html.Raw(page == 1 ? "<li><span>" + library.GetDictionaryItem("prepage") + "</span></li>"
+                                  : "<li><a href='?search=@searchTerm&amp;page=" + (page - 1) + "'>" + library.GetDictionaryItem("prepage") + "</a></li>")
+                @for (int p = 1; p < totalPages + 1; p++)
+                {
+                    var selected = p == page ? " class=\"active\"" : "";
+                    <li @Html.Raw(selected)><a href="?search=@searchTerm&amp;page=@p">@p</a></li>
+                }
+                @Html.Raw(page == totalPages ? "<li><span>" + library.GetDictionaryItem("nextpage") + "</span></li>"
+                                 : "<li><a href='?search=@searchTerm&amp;page=" + (page + 1) + "'>" + library.GetDictionaryItem("nextpage") + "</a></li>")
+                @Html.Raw(page == totalPages ? "<li><span>" + library.GetDictionaryItem("lastpage") + "</span></li>"
+                                 : "<li><a href='?search=@searchTerm&amp;page=" + totalPages + "'>" + library.GetDictionaryItem("lastpage") + "</a></li>")
+            </ul>
+        </div>
+
     </div>
 
     @Html.Partial("ContentPanels", @Model.Content)
