@@ -87,13 +87,19 @@ else
             
             <div>
                 <ul class="pagination" style="display: table;margin: 20px auto;">
-                    <li><span>上一页</span></li>
+                    @Html.Raw(page == 1 ? "<li><span>" + library.GetDictionaryItem("firstpage") + "</span></li>"
+                         : "<li><a href='?page=1'>" + library.GetDictionaryItem("firstpage") + "</a></li>")
+                    @Html.Raw(page == 1 ? "<li><span>" + library.GetDictionaryItem("prepage") + "</span></li>"
+                         : "<li><a href='?page=" + (page - 1) + "'>" + library.GetDictionaryItem("prepage") + "</a></li>")
                     @for (int p = 1; p < totalPages + 1; p++)
                     {
                         var selected = p == page ? " class=\"active\"" : "";
                         <li @Html.Raw(selected)><a href="?page=@p">@p</a></li>
                     }
-                    <li><a>下一页</a></li>
+                    @Html.Raw(page == totalPages ? "<li><span>" + library.GetDictionaryItem("nextpage") + "</span></li>"
+                        : "<li><a href='?page=" + (page + 1) + "'>" + library.GetDictionaryItem("nextpage") + "</a></li>")
+                    @Html.Raw(page == totalPages ? "<li><span>" + library.GetDictionaryItem("lastpage") + "</span></li>"
+                        : "<li><a href='?page=" + totalPages + "'>" + library.GetDictionaryItem("lastpage") + "</a></li>")
                 </ul>
             </div>
 
