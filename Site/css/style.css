@@ -24,14 +24,15 @@ a:hover{
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     -o-border-radius: 5px;
-    padding: 24px;
+    padding: 14px 24px;
 }
 
 .logo{
     float: left;
+    margin-bottom: 15px;
 }
 .logo img{
-    width:300px;
+    width:420px;
 }
 
 /*.lang_s{
@@ -82,7 +83,7 @@ padding-right: 10px;
 font-size: 18px;
 padding: 6px;
 display: block;
-border-bottom: 2px solid #2388e1;
+    border-bottom: 1px solid #e6e6e6;
 margin-bottom: 15px;
 margin-top: 10px;
 }
