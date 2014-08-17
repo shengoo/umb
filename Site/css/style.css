@@ -1,6 +1,7 @@
 ﻿body{
-    background-image: url(../images/background_noon.jpg);
-    background-repeat: no-repeat;
+    /*background-image: url(../images/background_noon.jpg);
+    background-repeat: no-repeat;*/
+    background-color: #e6e6e6;
 }
 
 h2 {
