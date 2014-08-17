@@ -12,7 +12,7 @@ else
 {
 
     Layout = "SW_Master.cshtml";
-    int pageSize = 10; // How many items per page
+    int pageSize = 9; // How many items per page
     int page; // The page we are viewing
 
     /* Set up parameters */
@@ -65,46 +65,40 @@ else
         
             @*<h2 class="list_title">@Model.Content.GetTitleOrName()</h2>*@
            
-               
-            @foreach (var item in nodes.Skip((page - 1)*pageSize).Take(pageSize))
-            {
-                <article>
-                    <h3>
-                        <a href="@item.NiceUrl()">
-                            @item.GetTitleOrName()
-                        </a>
-                    </h3>
-                    @*<p class="articleDate">
-                        @Convert.ToDateTime(item.UpdateDate).ToString("D")
-                    </p>*@
-                    <p>
-                        @item.GetPropertyValue("productSummary")
-              
-                    </p>
-                </article>
-            }
+    <div class="pro_list">
+        <ul>
+    @foreach (var item in nodes.Skip((page - 1) * pageSize).Take(pageSize))
+    {
+        <li>
+            <a href="@item.NiceUrl()" target="_blank"><img src="@item.GetPropertyValue("productImage")" alt="1"></a>
+            <h2><a href="@item.NiceUrl()" target="_blank">@item.GetTitleOrName()</a></h2>
+            <p>@item.GetPropertyValue("productSummary")</p>
+        </li>
+    }
+    </ul>
+    <div class="clearfix"></div>
+        </div>
 
-            
-            <div>
-                <ul class="pagination" style="display: table;margin: 20px auto;">
-                    @Html.Raw(page == 1 ? "<li><span>" + library.GetDictionaryItem("firstpage") + "</span></li>"
+                <div>
+                    <ul class="pagination" style="display: table;margin: 20px auto;">
+                        @Html.Raw(page == 1 ? "<li><span>" + library.GetDictionaryItem("firstpage") + "</span></li>"
                          : "<li><a href='?page=1'>" + library.GetDictionaryItem("firstpage") + "</a></li>")
-                    @Html.Raw(page == 1 ? "<li><span>" + library.GetDictionaryItem("prepage") + "</span></li>"
+                        @Html.Raw(page == 1 ? "<li><span>" + library.GetDictionaryItem("prepage") + "</span></li>"
                          : "<li><a href='?page=" + (page - 1) + "'>" + library.GetDictionaryItem("prepage") + "</a></li>")
-                    @for (int p = 1; p < totalPages + 1; p++)
+                        @for (int p = 1; p < totalPages + 1; p++)
                     {
                         var selected = p == page ? " class=\"active\"" : "";
-                        <li @Html.Raw(selected)><a href="?page=@p">@p</a></li>
+                            <li @Html.Raw(selected)><a href="?page=@p">@p</a></li>
                     }
-                    @Html.Raw(page == totalPages ? "<li><span>" + library.GetDictionaryItem("nextpage") + "</span></li>"
+                        @Html.Raw(page == totalPages ? "<li><span>" + library.GetDictionaryItem("nextpage") + "</span></li>"
                         : "<li><a href='?page=" + (page + 1) + "'>" + library.GetDictionaryItem("nextpage") + "</a></li>")
-                    @Html.Raw(page == totalPages ? "<li><span>" + library.GetDictionaryItem("lastpage") + "</span></li>"
+                        @Html.Raw(page == totalPages ? "<li><span>" + library.GetDictionaryItem("lastpage") + "</span></li>"
                         : "<li><a href='?page=" + totalPages + "'>" + library.GetDictionaryItem("lastpage") + "</a></li>")
-                </ul>
+                    </ul>
+                </div>
+
+
             </div>
-
-
-        </div>
      
         @Html.Partial("ContentPanels", @Model.Content)
     </div>

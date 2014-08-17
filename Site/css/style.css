@@ -82,6 +82,8 @@ font-size: 18px;
 padding: 6px;
 display: block;
 border-bottom: 2px solid #2388e1;
+margin-bottom: 15px;
+margin-top: 10px;
 }
 
 header nav ul{
@@ -266,6 +268,7 @@ article{
     float: left;
     width: 25%;
     height: 198px;
+    padding: 0 5px;
 }
 .productfolderlist img {
     width: 100%;
@@ -614,7 +617,7 @@ footer a{
 .copyright{
     text-align: center;
     border-top: #2388e1 2px solid;
-    margin-top: 25px;
+    /*margin-top: 25px;*/
     color: #999999;
     padding-top: 11px;
 }
@@ -641,3 +644,25 @@ position: absolute;
     margin: 1px 2px;
     line-height: 12px;
 }
+
+/*------------------------------产品展示 内容区域------------------------------*/
+.pro_list { overflow:hidden; padding-left: 15px;}
+.pro_list ul { width: 100%;padding-left: 0px; }
+.pro_list ul li {
+    float: left;
+background-color: #fff;
+
+margin: 3px 8px 13px 8px;
+padding: 13px;
+-webkit-box-shadow: #666 0px 2px 7px;
+-moz-box-shadow: #666 0px 2px 7px;
+box-shadow: #666 0px 2px 7px;
+    list-style: none;
+    width: 190px
+}
+.pro_list ul li img { width:164px; height:120px;  } 
+.pro_list ul li h2 {
+    margin: 0;
+}
+.pro_list ul li h2 a { font:14px/22px 微软雅黑; color:#0079c8; }
+.pro_list ul li p { font:12px/22px 宋体; color:#545454;word-break:break-word; }
