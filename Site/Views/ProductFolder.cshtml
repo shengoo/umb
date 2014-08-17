@@ -70,8 +70,8 @@ else
     @foreach (var item in nodes.Skip((page - 1) * pageSize).Take(pageSize))
     {
         <li>
-            <a href="@item.NiceUrl()" target="_blank"><img src="@item.GetPropertyValue("productImage")" alt="1"></a>
-            <h2><a href="@item.NiceUrl()" target="_blank">@item.GetTitleOrName()</a></h2>
+            <a href="@item.NiceUrl()"><img src="@item.GetPropertyValue("productImage")" alt="1"></a>
+            <h2><a href="@item.NiceUrl()" >@item.GetTitleOrName()</a></h2>
             <p>@item.GetPropertyValue("productSummary")</p>
         </li>
     }
