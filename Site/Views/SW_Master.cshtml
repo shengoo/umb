@@ -41,7 +41,7 @@
         <div class="outer">
             <!-- header -->
             <header class="header">
-                <div class="logo"><a href="@homepage.GetAliasOrUrl()"><img src="/images/logo3.jpg"></a></div>
+                <div class="logo"><a href="@homepage.GetAliasOrUrl()"><img src="/images/logo4.png"></a></div>
                 <div class="topright fright">
                     <div class="search-wrap fright">
                         <form action="/search" method="get" @*_lpchecked="1"*@>
@@ -54,9 +54,11 @@
                 </div>
 
                 <div class="clearfix"></div>
+                
+            </header>
+            <header class="header">
                 @Html.Partial("TopNav")
             </header>
-
             <!-- end of header -->
             
             <!-- banner  -->
@@ -72,17 +74,19 @@
             <main>
                 @RenderBody()
             </main>
-            @Html.Partial("FooterNav")
-            @*<div id="footer" class="fc">
-                <div class="page-width">
-                    @Html.Partial("Affiliations",homepage)
-                    <p>@homepage.GetPropertyValue("address")</p>
-                    <p>@Html.Raw(homepage.GetPropertyValue<string>("copyright"))</p>
-                </div>
-            </div>*@
-            <div class="copyright">@Html.Raw(homepage.GetPropertyValue<string>("copyright"))
-            </div>
+            
         </div>
+        @Html.Partial("FooterNav")
+        @*<div id="footer" class="fc">
+            <div class="page-width">
+                @Html.Partial("Affiliations",homepage)
+                <p>@homepage.GetPropertyValue("address")</p>
+                <p>@Html.Raw(homepage.GetPropertyValue<string>("copyright"))</p>
+            </div>
+        </div>*@
+        <div class="copyright">
+            @Html.Raw(homepage.GetPropertyValue<string>("copyright"))
+    </div>
         @RenderSection("scripts", required: false)
         <div style="display: none">
             <script type="text/javascript">

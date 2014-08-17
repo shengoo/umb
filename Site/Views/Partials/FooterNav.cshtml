@@ -1,25 +1,51 @@
 @using Site.App_Code
+@using Umbraco.Core.Dynamics
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     var homepage = Model.Content.AncestorOrSelf(1);
 }
-<footer>
-                    
-    @if (homepage.HasProperty("primaryNavigation"))
-    {
-        foreach (var node in Umbraco.TypedContent(homepage.GetPropertyValue<string>("primaryNavigation").Split(',')))
+<footer style="background-color: #f5f5f5;border-radius: 4px;">
+    <div style="margin: 0 auto;width: 1000px;">
+        @if (homepage.HasValue("links"))
         {
-            if(node != null && node.Level != 1)
-            {
-                <ul>
-                    <li><a href="@node.GetAliasOrUrl()"><strong>@node.GetTitleOrName()</strong></a></li>
-                    @foreach (var item in node.Children)
+            <ul>
+                <li style="margin: 0 0 10px 0;"><a href="javascript:void(0)"><strong>友情链接</strong></a></li>
+
+                @{ var relatedLinks = homepage.GetPropertyValue<DynamicXml>("links"); }
+                @if (relatedLinks.Any())
+                {
+
+                    foreach (dynamic item in relatedLinks)
                     {
-                        <li><a href="@item.GetAliasOrUrl()">@item.GetTitleOrName()</a></li>
+                        var linkUrl = (item.type.Equals("internal")) ? Umbraco.NiceUrl(int.Parse(item.link)) : item.link;
+                        var linkTarget = (item.newwindow.Equals("1")) ? " target=\"_blank\"" : string.Empty;
+                        <li><a href="@linkUrl" @Html.Raw(linkTarget)>@item.title</a></li>
                     }
-                </ul>
+
+                }
+
+            </ul>       }
+        @if (homepage.HasProperty("footerNav"))
+        {
+            foreach (var node in Umbraco.TypedContent(homepage.GetPropertyValue<string>("footerNav").Split(',')))
+            {
+                if (node != null && node.Level != 1)
+                {
+                    
+                    <ul style="@{ Html.Raw(node.IsLast() ? "width:180px;" : "");}">
+                        <li style="margin: 0 0 10px 0;"><a href="@node.GetAliasOrUrl()"><strong>@node.GetTitleOrName()</strong></a></li>
+                        @foreach (var item in node.Children)
+                        {
+                            <li><a href="@item.GetAliasOrUrl()">@item.GetTitleOrName()</a></li>
+                        }
+                    </ul>
+                }
             }
         }
-    }
-    <div class="clearfix"></div>
+        <div style="float: left;padding-left: 40px;">
+            <strong style="margin: 0 0 10px 0;">联系方式</strong>
+            <p style="margin: 10 0 0 0;">@homepage.GetPropertyValue("lxfs")</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
 </footer>
