@@ -3,36 +3,64 @@
     Layout = null;
 }
 
-@using (Html.BeginUmbracoForm("SendEmail", "ContactFormSurface", new { }, new { @class = "form-horizontal" }))
+@using (Html.BeginUmbracoForm("SendEmail", "ContactFormSurface"))
 {
-    <div class="form-group">
-        <label class="col-sm-2 control-label">@library.GetDictionaryItem("name")</label>
-        <div class="col-sm-10">
-            @Html.EditorFor(x => Model.Name)
-            @Html.ValidationMessageFor(x => Model.Name, "", new { @class = "alert" })
-            </div>
-        </div>
-
-    <div class="form-group">
-        <label class="col-sm-2 control-label">@library.GetDictionaryItem("email")</label>
-        <div class="col-sm-10">
-            @Html.EditorFor(x => Model.Email)
-            @Html.ValidationMessageFor(x => Model.Email, "", new { @class = "alert" })
-        </div>
-        </div>
-
-    <div class="form-group">
-        <label class="col-sm-2 control-label">@library.GetDictionaryItem("comment")</label>
-        <div class="col-sm-10">
-            @Html.EditorFor(x => Model.Comment)
-            @Html.ValidationMessageFor(x => Model.Comment, "", new { @class = "alert" })
-        </div>
-        </div>
-
-
-    <div>
-        <input class="btn btn-default" type="submit" name="Submit"/>
-    </div>
-
+    <table width="649" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td width="649" height="55" align="center" style="background: url(/images/ly_bj.jpg) no-repeat;">
+                    <table width="92%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td width="15%">留言标题：</td>
+                                <td width="85%" align="left"><input type="text" name="Name" size="20" id="User4" class="input" value="">@Html.ValidationMessageFor(x => Model.Name, "", new { @class = "alert" })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table width="649" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td width="649" height="55" align="center" style="background: url(/images/ly_bj.jpg) no-repeat;">
+                    <table width="92%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td width="15%">联系方式：</td>
+                                <td width="85%" align="left"><input type="text" name="Email" size="20" id="email4" class="input" value="">@Html.ValidationMessageFor(x => Model.Email, "", new { @class = "alert" })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table width="649" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td width="649" height="155" align="center" style="background: url(/images/ly_bj1.jpg) no-repeat;">
+                    <table width="92%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td width="15%" height="114">留言内容：</td>
+                                <td width="85%" align="left"><textarea name="Comment" style="width: 396px; height: 92px;"></textarea></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table width="92%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td width="15%">&nbsp;</td>
+                                <td width="85%" align="left">
+                                    <input type="image" name="Submit2" id="imageField" src="/images/qr.jpg" class="Input-a">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 }
-

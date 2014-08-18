@@ -8,7 +8,7 @@
     @Html.Partial("LeftNavigation",@Model.Content)
 
     <div  class="" style="float: left;width: 75%;padding-left: 30px;">
-        <h2>@Html.Raw(Model.Content.GetTitleOrName())</h2>
+        @*<h2>@Html.Raw(Model.Content.GetTitleOrName())</h2>*@
            
         @Html.Partial("ContactForm",new Koiak.StandardWebsite.ContactFormModel())
     </div>
