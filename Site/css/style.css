@@ -1,9 +1,11 @@
-﻿body{
+body{
     /*background-image: url(../images/background_noon.jpg);
     background-repeat: no-repeat;*/
     /*background-color: #e6e6e6;*/
-    background: url(../images/headerBg.jpg) #fdfdfc no-repeat center top;
+    /*background: url(../images/headerBg.jpg) #fdfdfc no-repeat center top;*/
     /*background: url(../images/head_top.jpg) repeat-x 0 0;*/
+    background: url(../images/topbj_03.jpg)  repeat-x 0 0;
+    padding-top: 24px;
 }
 
 h2 {
@@ -109,9 +111,10 @@ header nav ul li{
 header nav ul li:hover{
     /*border-bottom: 2px #3B91FF solid;*/
 }
-
-header nav ul li a{
+header nav ul li a[lang=zh_CN]{
     font-family: 微软雅黑;
+}
+header nav ul li a{
     line-height: 40px;
     font-size: 1.2em;
     text-align: center;
@@ -688,3 +691,4 @@ box-shadow: #666 0px 2px 7px;
 .pro_list ul li h2 a { font:14px/22px 微软雅黑; color:#0079c8; }
 .pro_list ul li p { font:12px/22px 宋体; color:#545454;word-break:break-word; }
 
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
