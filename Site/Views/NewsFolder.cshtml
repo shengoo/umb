@@ -56,7 +56,7 @@
        
         @*<h2 class="list_title">@Model.Content.GetTitleOrName()</h2>*@
            
-        <div class="news_list clearfix">
+        <div class="news_list clearfix" style="min-height: 300px;">
             <ul style="padding-left: 0px;">
                 @foreach (var item in nodes.Skip((page - 1) * pageSize).Take(pageSize))
                 {

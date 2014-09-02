@@ -5,7 +5,7 @@ body{
     /*background: url(../images/headerBg.jpg) #fdfdfc no-repeat center top;*/
     /*background: url(../images/head_top.jpg) repeat-x 0 0;*/
     background: url(../images/topbj_03.jpg)  repeat-x 0 0;
-    padding-top: 24px;
+    /*padding-top: 24px;*/
 }
 
 h2 {
@@ -98,8 +98,8 @@ header nav ul{
     height: 42px;
     /*border-bottom: 2px #CCC solid;*/
     padding: 0;
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid #ccc;
 }
 header nav ul li{
     float: left;

@@ -37,7 +37,9 @@
         @RenderSection("styles", required: false)
     </head>
     <body>
-
+        <div style="width: 960px;height: 24px;margin: 0 auto;">
+            <p style="float: right;color:white;line-height: 24px;padding-right: 50px;">@homepage.GetPropertyValue("headerText")</p>
+        </div>
         <div class="outer">
             <!-- header -->
             <header class="header">

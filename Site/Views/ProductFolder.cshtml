@@ -65,19 +65,19 @@ else
         
             @*<h2 class="list_title">@Model.Content.GetTitleOrName()</h2>*@
            
-    <div class="pro_list">
-        <ul>
-    @foreach (var item in nodes.Skip((page - 1) * pageSize).Take(pageSize))
-    {
-        <li>
-            <a href="@item.NiceUrl()"><img src="@item.GetPropertyValue("productImage")" alt="1"></a>
-            <h2><a href="@item.NiceUrl()" >@item.GetTitleOrName()</a></h2>
-            <p>@item.GetPropertyValue("productSummary")</p>
-        </li>
-    }
-    </ul>
-    <div class="clearfix"></div>
-        </div>
+            <div class="pro_list" style="min-height: 300px;">
+                <ul>
+                    @foreach (var item in nodes.Skip((page - 1) * pageSize).Take(pageSize))
+                    {
+                        <li>
+                            <a href="@item.NiceUrl()"><img src="@item.GetPropertyValue("productImage")" alt="1"></a>
+                            <h2><a href="@item.NiceUrl()">@item.GetTitleOrName()</a></h2>
+                            <p>@item.GetPropertyValue("productSummary")</p>
+                        </li>
+                    }
+                </ul>
+                <div class="clearfix"></div>
+            </div>
 
                 <div>
                     <ul class="pagination" style="display: table;margin: 20px auto;">
