@@ -15,7 +15,7 @@
     /* This is your basic query to select the nodes you want */
 
     //var nodes = Model.Content.Children.Where(x => x.DocumentTypeAlias == "NewsArticle").OrderBy(x=>x.CreateDate);
-    var nodes = Model.Content.Descendants("NewsArticle").OrderBy(x => x.CreateDate);
+    var nodes = Model.Content.Descendants("NewsArticle").OrderByDescending(x => x.GetPropertyValue<DateTime>("articleDate"));
 
     int totalNodes = nodes.Count();
     int totalPages = (int)Math.Ceiling((double)totalNodes / (double)pageSize);

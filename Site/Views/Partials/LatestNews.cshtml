@@ -2,7 +2,7 @@
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     var homepage = Model.Content.AncestorOrSelf(1);
-    var news = homepage.DescendantsOrSelf("NewsArticle").OrderBy(x => x.CreateDate).Take(6);
+    var news = homepage.DescendantsOrSelf("NewsArticle").OrderByDescending(x => x.GetPropertyValue<DateTime>("articleDate")).Take(6);
     var newsImage = Umbraco.TypedMedia(homepage.GetPropertyValue("newsImage"));
 }
     <h2 class="with_blue">@umbraco.library.GetDictionaryItem("latestNews")
@@ -20,7 +20,7 @@
         {
             <li>
                 
-                    <span class="time" style="float: right;">@item.CreateDate.ToString("d")</span>
+                    <span class="time" style="float: right;">@(item.GetPropertyValue<DateTime>("articleDate").ToString("d"))</span>
                     <span class="news_line" title="@item.GetTitleOrName()"><a href="@item.Url" class="clearfix blacklink">@item.GetTitleOrName() </a></span>
                
             </li>
