@@ -33,7 +33,7 @@
         var searchCriteria = Examine.ExamineManager.Instance.CreateSearchCriteria(Examine.SearchCriteria.BooleanOperation.And);
 
         var query = searchCriteria.GroupedOr(
-            new string[] { "nodeName", "bodyText", "panelContent1", "panelContent2", "panelContent3", "articleSummary"},searchTerm.Fuzzy(0.7f))
+            new string[] { "nodeName", "bodyText", "articleSummary"},searchTerm.Fuzzy(0.7f))
             .Compile();
 
         var results = baseSearchProvider.Search(query); //.OrderByDescending(x => x.Score)
