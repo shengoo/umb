@@ -33,10 +33,10 @@
                 {
                     
                     <ul style="@{ Html.Raw(node.IsLast() ? "width:180px;" : "");}">
-                        <li style="margin: 0 0 10px 0;"><a href="@node.GetAliasOrUrl()"><strong>@node.GetTitleOrName()</strong></a></li>
+                        <li style="margin: 0 0 10px 0;"><a href="@node.Url"><strong>@node.GetTitleOrName()</strong></a></li>
                         @foreach (var item in node.Children)
                         {
-                            <li><a href="@item.GetAliasOrUrl()">@item.GetTitleOrName()</a></li>
+                            <li><a href="@item.Url">@item.GetTitleOrName()</a></li>
                         }
                     </ul>
                 }

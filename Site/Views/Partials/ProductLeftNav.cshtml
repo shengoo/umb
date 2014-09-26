@@ -23,7 +23,7 @@
         {
             var selected = Array.IndexOf(Model.Content.Path.Split(','), node.Id.ToString()) >= 0 ? " class=\"active\"" : "";
       <li>
-        <a @Html.Raw(selected) href="@node.GetAliasOrUrl()">@node.GetTitleOrName()</a>                                       
+        <a @Html.Raw(selected) href="@node.Url">@node.GetTitleOrName()</a>                                       
         @*if (selected!=""&&@node.Level<=finishLevel) { @traverse(node,finishLevel); }  *@
       </li>
       }

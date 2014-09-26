@@ -13,8 +13,8 @@
         {
             <div class="box" style="float: left;text-align: center;margin: 0;padding: 0;border: 0;">
                 <div class="fang" style="padding: 1px;margin: 0 5px 0 0;border: 1px #ddd solid;">
-                    <a href="@item.GetAliasOrUrl()" ><img src="@item.GetPropertyValue("productImage")" width="150px" height="110px"></a></div>
-                <a href="@item.GetAliasOrUrl()" class="prodtitle">@item.GetTitleOrName()</a>
+                    <a href="@item.Url" ><img src="@item.GetPropertyValue("productImage")" width="150px" height="110px"></a></div>
+                <a href="@item.Url" class="prodtitle">@item.GetTitleOrName()</a>
             </div>
         }
     }
@@ -40,4 +40,4 @@ scrollPic_03.autoPlayTime   = 3; //自动播放间隔时间(秒)
 scrollPic_03.initialize(); //初始化
 							
 		//--><!]]>
-</script>
+</script>

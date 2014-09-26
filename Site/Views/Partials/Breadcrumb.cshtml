@@ -15,7 +15,7 @@
         @* For each page in the ancestors collection which have been ordered by Level (so we start with the highest top node first) *@
         @foreach (var page in Model.Content.Ancestors().OrderBy("Level").Where(x => x.IsVisible() && !x.IsDocumentType("DateFolder")))
         {
-            <li><a href="@page.GetAliasOrUrl()">@page.GetTitleOrName()</a></li>
+            <li><a href="@page.Url">@page.GetTitleOrName()</a></li>
         }
 
         @* Display the current page as the last item in the list *@

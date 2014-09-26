@@ -69,7 +69,7 @@ else
             @foreach (var item in nodes.Skip((page - 1)*pageSize).Take(pageSize))
             {
                 <div>
-                    <a href="@item.GetAliasOrUrl()">
+                    <a href="@item.Url">
                         <img src="@item.GetPropertyValue("image")" />
                         <p>@item.GetTitleOrName()</p>
                     </a>   
