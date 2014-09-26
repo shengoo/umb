@@ -9,7 +9,7 @@
         @if (homepage.HasValue("links"))
         {
             <ul>
-                <li style="margin: 0 0 10px 0;"><a href="javascript:void(0)"><strong>友情链接</strong></a></li>
+                <li style="margin: 0 0 10px 0;"><a href="javascript:void(0)"><strong>@Umbraco.Field("#友情链接")</strong></a></li>
 
                 @{ var relatedLinks = homepage.GetPropertyValue<DynamicXml>("links"); }
                 @if (relatedLinks.Any())
@@ -31,7 +31,7 @@
             {
                 if (node != null && node.Level != 1)
                 {
-                    
+
                     <ul style="@{ Html.Raw(node.IsLast() ? "width:180px;" : "");}">
                         <li style="margin: 0 0 10px 0;"><a href="@node.Url"><strong>@node.GetTitleOrName()</strong></a></li>
                         @foreach (var item in node.Children)
@@ -43,7 +43,7 @@
             }
         }
         <div style="float: left;padding-left: 40px;">
-            <strong style="margin: 0 0 10px 0;">联系方式</strong>
+            <strong style="margin: 0 0 10px 0;">@Umbraco.Field("#联系方式")</strong>
             <p style="margin: 10 0 0 0;">@homepage.GetPropertyValue("lxfs")</p>
         </div>
         <div class="clearfix"></div>
